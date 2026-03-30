@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGA Technologies - Automacao e IA sob medida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cyan:#00d4ff;--purple:#9b5cff;--purple-soft:#c084fc;--bg:#050810;--bg2:#080c18;--bg3:#0c1020;--text:#e8f0ff;--text-muted:#5a6a8a;--border:#141a2e;--border-glow:rgba(0,212,255,0.15)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Rajdhani",sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 56px;background:rgba(5,8,16,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:"Rajdhani",sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text)}
+.nav-logo img,.footer-logo img{mix-blend-mode:lighten;filter:drop-shadow(0 0 8px rgba(0,212,255,0.4))}
+.nav-logo img{height:38px;width:auto}
+.footer-logo img{height:30px;width:auto}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{color:var(--text-muted);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--cyan)}
+.btn-cyan{background:linear-gradient(135deg,var(--cyan),var(--purple));color:#000;border:none;padding:10px 24px;border-radius:6px;font-family:"Rajdhani",sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.2s,transform 0.15s;text-transform:uppercase}
+.btn-cyan:hover{opacity:0.88;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border-glow);padding:10px 24px;border-radius:6px;font-family:"Rajdhani",sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s,color 0.2s;text-transform:uppercase}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 56px 80px;position:relative;overflow:hidden}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border-glow);border-radius:20px;padding:6px 18px;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:32px;background:rgba(0,212,255,0.04)}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero-tagline{font-family:"Bebas Neue",sans-serif;font-size:96px;line-height:0.92;letter-spacing:2px;margin-bottom:4px}
+.hero-tagline .cyan{color:var(--cyan)}.hero-tagline .purple{color:var(--purple-soft)}
+.hero-sub{font-size:17px;font-weight:500;color:var(--text-muted);max-width:520px;margin:24px auto 40px;letter-spacing:0.5px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:80px}
+.logo-wrap{position:relative;width:260px;margin-bottom:40px;animation:logoFloat 4s ease-in-out infinite}
+.logo-img{width:100%;height:auto;display:block;mix-blend-mode:lighten;filter:drop-shadow(0 0 20px rgba(0,212,255,0.45)) drop-shadow(0 0 50px rgba(155,92,255,0.22));animation:logoPulse 3s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0px)}50%{transform:translateY(-12px)}}
+@keyframes logoPulse{0%,100%{filter:drop-shadow(0 0 20px rgba(0,212,255,0.45)) drop-shadow(0 0 50px rgba(155,92,255,0.22))}50%{filter:drop-shadow(0 0 32px rgba(0,212,255,0.7)) drop-shadow(0 0 70px rgba(155,92,255,0.38))}}
+.hero2{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 56px 80px;position:relative}
+.hero2-title{font-family:"Bebas Neue",sans-serif;font-size:100px;color:var(--cyan);line-height:0.95;margin-bottom:18px;text-shadow:0 0 40px rgba(0,212,255,0.3)}
+.hero2-subtitle{font-size:28px;font-weight:700;color:#b0c4e0;letter-spacing:1px;margin-bottom:20px}
+.hero2-desc{max-width:440px;color:var(--text-muted);font-size:15px;margin-bottom:40px;line-height:1.75;font-weight:500}
+.hero2-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:80px}
+.stats-row{display:flex;gap:80px}
+.stat-num{font-family:"Bebas Neue",sans-serif;font-size:56px;color:var(--cyan);line-height:1;margin-bottom:4px;text-shadow:0 0 20px rgba(0,212,255,0.4)}
+.stat-label{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted)}
+.marquee-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marquee 22s linear infinite}
+.marquee-item{display:inline-flex;align-items:center;gap:8px;padding:0 36px;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted)}
+.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--cyan);opacity:0.6}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:100px 56px;position:relative}
+.section-tag{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px}
+.section-tag::before{content:"// ";color:var(--cyan);opacity:0.7}
+.section-title{font-family:"Bebas Neue",sans-serif;font-size:66px;line-height:0.95;margin-bottom:64px;letter-spacing:1px}
+.section-title .cyan{color:var(--cyan)}.section-title .purple{color:var(--purple-soft)}
+.services-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.service-card{grid-column:span 2;background:var(--bg2);padding:38px 34px;transition:background 0.25s;border:0;position:relative}
+.service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--purple));opacity:0;transition:opacity 0.25s}
+.service-card:nth-child(4),.service-card:nth-child(5){grid-column:span 3}
+.service-card:hover{background:var(--bg3)}.service-card:hover::before{opacity:1}
+.service-icon{font-size:22px;margin-bottom:16px;display:block}.service-num{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:2px;color:var(--text-muted);margin-bottom:12px}
+.service-name{font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;color:var(--text)}
+.service-desc{font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:22px;font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{background:rgba(0,212,255,0.05);border:1px solid rgba(0,212,255,0.12);padding:3px 10px;border-radius:4px;font-size:11px;color:#5a8aaa;font-weight:600;letter-spacing:0.5px}
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:flex-start}
+.steps{display:flex;flex-direction:column;gap:0}.step{display:flex;gap:24px;padding:30px 0;border-bottom:1px solid var(--border)}.step:first-child{border-top:1px solid var(--border)}
+.step-num{font-family:"Bebas Neue",sans-serif;font-size:38px;color:var(--cyan);min-width:40px;line-height:1;margin-top:2px;opacity:0.5}
+.step-title{font-size:14px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;color:var(--text)}.step-desc{font-size:14px;color:var(--text-muted);line-height:1.75;font-weight:500}
+.terminal{background:#060a14;border:1px solid var(--border);border-radius:10px;overflow:hidden;font-family:"Space Mono",monospace;font-size:12px;box-shadow:0 0 60px rgba(0,212,255,0.06)}
+.terminal-bar{background:#0a1020;padding:10px 16px;display:flex;gap:7px;align-items:center;border-bottom:1px solid var(--border)}
+.dot{width:10px;height:10px;border-radius:50%}.dot-r{background:#ff5f57}.dot-y{background:#ffbd2e}.dot-g{background:#28ca41}
+.terminal-body{padding:22px;line-height:2.1}.t-line{color:#3a5070}.t-label{color:#556678}.t-cyan{color:var(--cyan)}.t-highlight{color:#60e0ff;font-weight:bold}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testimonial-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:30px;transition:border-color 0.25s,box-shadow 0.25s;position:relative;overflow:hidden}
+.testimonial-card::before{content:'"';position:absolute;top:-10px;left:24px;font-family:"Bebas Neue",sans-serif;font-size:100px;color:var(--cyan);opacity:0.06;line-height:1}
+.testimonial-card:hover{border-color:var(--border-glow);box-shadow:0 8px 40px rgba(0,212,255,0.06)}
+.testimonial-text{font-size:14px;color:#a0b4cc;line-height:1.75;margin-bottom:24px;font-style:italic;font-weight:500;position:relative;z-index:1}
+.testimonial-author{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Rajdhani",sans-serif;font-weight:700;font-size:14px;flex-shrink:0}
+.avatar-cyan{background:linear-gradient(135deg,var(--cyan),#0088aa);color:#000}.avatar-purple{background:linear-gradient(135deg,var(--purple),#6b3ac0);color:#fff}.avatar-blue{background:linear-gradient(135deg,#3b82f6,#1d4ed8);color:#fff}
+.author-name{font-size:14px;font-weight:700;letter-spacing:0.5px;color:var(--text)}.author-role{font-family:"Space Mono",monospace;font-size:10px;color:var(--text-muted);letter-spacing:0.5px}
+.video-section{background:var(--bg2);padding:80px 56px;text-align:center;border-top:1px solid var(--border)}
+.video-wrapper{max-width:860px;margin:0 auto;border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 80px rgba(0,0,0,0.6)}
+.video-wrapper video{width:100%;display:block;background:#000}
+.portfolio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.portfolio-card{border-radius:10px;overflow:hidden;border:1px solid var(--border);background:var(--bg2);cursor:pointer;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;text-decoration:none;display:block;position:relative}
+.portfolio-card:hover{transform:translateY(-5px);border-color:rgba(0,212,255,0.3);box-shadow:0 12px 40px rgba(0,212,255,0.08)}
+.portfolio-preview{width:100%;height:200px;overflow:hidden;position:relative;background:#0a0f1e}
+.portfolio-preview-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(5,8,16,0.7) 100%);z-index:2;display:flex;align-items:flex-end;justify-content:flex-end;padding:10px;opacity:0;transition:opacity 0.2s}
+.portfolio-card:hover .portfolio-preview-overlay{opacity:1}
+.portfolio-preview-overlay span{background:var(--cyan);color:#000;font-family:"Space Mono",monospace;font-size:10px;font-weight:700;padding:5px 10px;border-radius:4px;letter-spacing:1px}
+.portfolio-info{padding:14px 16px}.portfolio-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:0.5px}
+.portfolio-tag{display:inline-block;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--cyan);background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);padding:2px 8px;border-radius:4px}
+.cta-section{text-align:center;padding:130px 56px;border-top:1px solid var(--border);position:relative;overflow:hidden}
+.cta-section::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,255,0.06) 0%,transparent 70%);pointer-events:none}
+.cta-title{font-family:"Bebas Neue",sans-serif;font-size:86px;line-height:0.95;margin-bottom:12px;position:relative}.cta-title .cyan{color:var(--cyan)}
+.cta-desc{color:var(--text-muted);font-size:16px;margin-bottom:40px;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7;font-weight:500;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;position:relative}
+footer{border-top:1px solid var(--border);padding:28px 56px;display:flex;align-items:center;justify-content:space-between;background:var(--bg2)}
+.footer-logo{display:flex;align-items:center;gap:10px;font-family:"Rajdhani",sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text)}
+.footer-copy{font-family:"Space Mono",monospace;font-size:11px;color:var(--text-muted);letter-spacing:0.5px}
+.glow{position:absolute;border-radius:50%;filter:blur(140px);pointer-events:none;z-index:0}
+.hero>*,.hero2>*,section>*{position:relative;z-index:1}
+.beams-canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.65}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.8s ease forwards}.fade-up-2{animation:fadeUp 0.8s 0.15s ease both}.fade-up-3{animation:fadeUp 0.8s 0.3s ease both}.fade-up-4{animation:fadeUp 0.8s 0.45s ease both}
+.grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(0,212,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.015) 1px,transparent 1px);background-size:60px 60px}
+@media(max-width:1200px){.portfolio-grid{grid-template-columns:repeat(3,1fr)}.hero-tagline{font-size:72px}.hero2-title{font-size:72px}}
+@media(max-width:900px){nav{padding:14px 24px}.nav-links{display:none}section,.hero,.hero2{padding:80px 24px}.hero-tagline{font-size:52px}.hero2-title{font-size:52px}.section-title{font-size:46px}.services-grid{grid-template-columns:1fr}.service-card,.service-card:nth-child(4),.service-card:nth-child(5){grid-column:span 1}.how-grid{grid-template-columns:1fr;gap:40px}.testimonials-grid{grid-template-columns:1fr}.stats-row{gap:40px;flex-wrap:wrap}.portfolio-grid{grid-template-columns:repeat(2,1fr)}footer{flex-direction:column;gap:12px;text-align:center;padding:24px}.cta-title{font-size:56px}.logo-wrap{width:200px}}
+@media(max-width:480px){.portfolio-grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="grid-overlay"></div>
+<canvas class="beams-canvas" id="beamsCanvas"></canvas>
+<nav><div class="nav-logo"><img src="deixe_a_logo_202603301200_1.png" alt="RGA Technologies" onerror="this.style.display='none'">RGA Technologies</div>
+<ul class="nav-links"><li><a href="#servicos">Servicos</a></li><li><a href="#como">Processo</a></li><li><a href="#resultados">Resultados</a></li><li><a href="#portfolio">Portfolio</a></li></ul>
+<a href="#contato" class="btn-cyan">Falar com especialista</a></nav>
+<section class="hero" style="background:var(--bg);">
+<div class="glow" style="width:700px;height:700px;top:-200px;left:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,rgba(155,92,255,0.04) 50%,transparent 70%);"></div>
+<div class="logo-wrap fade-up"><img class="logo-img" src="Quero_a_imagem_202603301159_1.png" alt="RGA Technologies Logo" onerror="this.style.display='none'"></div>
+<div class="badge fade-up-2">Automacao Inteligente com IA</div>
+<h1 class="hero-tagline fade-up-3">SISTEMAS DE <span class="cyan">IA</span><br>QUE TRABALHAM<br><span class="purple">POR VOCE</span></h1>
+<p class="hero-sub fade-up-4">Desenvolvemos automacoes, agentes de IA e sistemas sob medida que eliminam tarefas manuais e escalam sua operacao sem contratar mais ninguem.</p>
+<div class="hero-btns fade-up-4"><a href="#contato" class="btn-cyan">Quero uma automacao</a><a href="#servicos" class="btn-outline">Ver solucoes</a></div>
+</section>
+<div class="marquee-wrap"><div class="marquee-track">
+<span class="marquee-item"><span class="marquee-dot"></span>Agentes de IA</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Automacao n8n</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Integracoes API</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Claude AI</span>
+<span class="marquee-item"><span class="marquee-dot"></span>WhatsApp Bot</span>
+<span class="marquee-item"><span class="marquee-dot"></span>CRM Automatico</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Deploy Vercel</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Next.js</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Supabase</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Make / Zapier</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Agentes de IA</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Automacao n8n</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Integracoes API</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Claude AI</span>
+<span class="marquee-item"><span class="marquee-dot"></span>WhatsApp Bot</span>
+<span class="marquee-item"><span class="marquee-dot"></span>CRM Automatico</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Deploy Vercel</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Next.js</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Supabase</span>
+<span class="marquee-item"><span class="marquee-dot"></span>Make / Zapier</span>
+</div></div>
+<section class="hero2" style="background:var(--bg2);">
+<div class="glow" style="width:600px;height:600px;top:10%;right:-100px;background:radial-gradient(circle,rgba(155,92,255,0.08) 0%,transparent 70%);"></div>
+<div class="section-tag">A solucao</div><h2 class="hero2-title">TECNOLOGIA<br>QUE GERA<br>RESULTADO</h2>
+<p class="hero2-subtitle">Automacao real. Retorno mensuravel.</p>
+<p class="hero2-desc">Combinamos IA de ultima geracao com automacoes avancadas para transformar processos manuais em fluxos inteligentes do atendimento ao faturamento.</p>
+<div class="hero2-btns"><a href="#contato" class="btn-cyan">Diagnostico gratuito</a><a href="#portfolio" class="btn-outline">Ver portfolio</a></div>
+<div class="stats-row"><div><div class="stat-num">48h</div><div class="stat-label">economizadas / semana</div></div><div><div class="stat-num">3x</div><div class="stat-label">mais leads atendidos</div></div><div><div class="stat-num">100%</div><div class="stat-label">personalizado</div></div></div>
+</section>
+<section id="servicos" style="background:var(--bg);"><div class="section-tag">Solucoes</div><h2 class="section-title">NOSSAS<br><span class="cyan">ESPECIALIDADES</span></h2>
+<div class="services-grid">
+<div class="service-card"><span class="service-icon">🤖</span><div class="service-num">01</div><div class="service-name">Agentes de IA</div><p class="service-desc">Agentes autonomos que pensam, agem e tomam decisoes por voce 24 horas por dia, sem custo fixo de equipe.</p><div class="tags"><span class="tag">Claude AI</span><span class="tag">GPT-4o</span><span class="tag">Gemini</span></div></div>
+<div class="service-card"><span class="service-icon">⚡</span><div class="service-num">02</div><div class="service-name">Automacao n8n</div><p class="service-desc">Fluxos de automacao robustos integrando centenas de sistemas CRM, ERP, WhatsApp, e-mail, planilhas e muito mais.</p><div class="tags"><span class="tag">n8n</span><span class="tag">Make</span><span class="tag">Zapier</span></div></div>
+<div class="service-card"><span class="service-icon">💬</span><div class="service-num">03</div><div class="service-name">WhatsApp e Atendimento</div><p class="service-desc">Bots inteligentes no WhatsApp que qualificam leads, respondem duvidas e agendam reunioes no piloto automatico.</p><div class="tags"><span class="tag">WhatsApp API</span><span class="tag">Evolution</span><span class="tag">IA</span></div></div>
+<div class="service-card"><span class="service-icon">🛠️</span><div class="service-num">04</div><div class="service-name">Sistemas e Dashboards</div><p class="service-desc">Aplicacoes web completas e dashboards em tempo real com Next.js, Supabase e deploy na Vercel rapido e escalavel.</p><div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Vercel</span><span class="tag">TypeScript</span></div></div>
+<div class="service-card"><span class="service-icon">📊</span><div class="service-num">05</div><div class="service-name">CRM e Marketing Automatico</div><p class="service-desc">Funis automatizados, nutricao de leads e campanhas inteligentes que convertem enquanto voce dorme.</p><div class="tags"><span class="tag">Email Marketing</span><span class="tag">Funil</span><span class="tag">Leads</span></div></div>
+</div></section>
+<section id="como" style="background:var(--bg2);"><div class="section-tag">Processo</div><h2 class="section-title">COMO<br><span class="cyan">FUNCIONA</span></h2>
+<div class="how-grid"><div class="steps">
+<div class="step"><div class="step-num">01</div><div><div class="step-title">Diagnostico</div><p class="step-desc">Entendemos seus processos, gargalos e objetivos para mapear as melhores oportunidades de automacao e retorno real.</p></div></div>
+<div class="step"><div class="step-num">02</div><div><div class="step-title">Desenvolvimento</div><p class="step-desc">Construimos a solucao com tecnologia de ponta, integrando com seus sistemas atuais sem interrupcoes nem dores de cabeca.</p></div></div>
+<div class="step"><div class="step-num">03</div><div><div class="step-title">Deploy e Suporte</div><p class="step-desc">Lancamos, monitoramos e otimizamos continuamente. Voce recebe relatorios de performance e suporte dedicado.</p></div></div>
+</div>
+<div class="terminal"><div class="terminal-bar"><div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div></div>
+<div class="terminal-body"><div class="t-line">$ rga-cli start --client=empresa-abc</div><div class="t-label">Analisando processos manuais...</div><div class="t-label">Mapeando integracoes...</div><div class="t-cyan">14 tarefas automatizaveis identificadas</div><div class="t-cyan">Agente IA configurado</div><div class="t-cyan">WhatsApp API conectado</div><div class="t-cyan">CRM sincronizado</div><div class="t-cyan">Dashboard em producao</div><br><div class="t-highlight">Sistema RGA operacional!</div><div class="t-label">Economia estimada: <span class="t-cyan">52h/semana</span></div></div></div>
+</div></section>
+<section id="resultados" style="background:var(--bg);"><div class="section-tag">Resultados</div><h2 class="section-title">O QUE NOSSOS<br><span class="cyan">CLIENTES</span> DIZEM</h2>
+<div class="testimonials-grid">
+<div class="testimonial-card"><p class="testimonial-text">O agente de IA transformou nosso atendimento. Respondemos 3x mais leads sem aumentar a equipe. Simplesmente incrivel.</p><div class="testimonial-author"><div class="avatar avatar-cyan">CM</div><div><div class="author-name">Carlos Mendes</div><div class="author-role">CEO - Imobiliaria Prime</div></div></div></div>
+<div class="testimonial-card"><p class="testimonial-text">Automatizamos todo nosso processo de onboarding e reduzimos o tempo de 2 dias para 15 minutos. ROI em 3 semanas.</p><div class="testimonial-author"><div class="avatar avatar-purple">AP</div><div><div class="author-name">Ana Paula</div><div class="author-role">Diretora de Ops - Clinica Saude+</div></div></div></div>
+<div class="testimonial-card"><p class="testimonial-text">A RGA entregou em 2 semanas o que cotei em outros lugares por R$30k e 3 meses. Qualidade absurda e suporte rapido.</p><div class="testimonial-author"><div class="avatar avatar-blue">RF</div><div><div class="author-name">Rodrigo Fonseca</div><div class="author-role">Fundador - E-commerce ModaBR</div></div></div></div>
+</div></section>
+<div class="video-section"><div class="section-tag" style="margin-bottom:16px;">Demo</div><h2 class="section-title" style="margin-bottom:32px;">VEJA A <span class="cyan">RGA EM ACAO</span></h2><div class="video-wrapper"><video controls><source src="demo.mp4" type="video/mp4"></video></div></div>
+<section id="portfolio" style="background:var(--bg2);"><div class="section-tag">Portfolio</div><h2 class="section-title">PROJETOS<br><span class="purple">ENTREGUES</span></h2>
+<div class="portfolio-grid">
+<a class="portfolio-card" href="#" target="_blank"><div class="portfolio-preview"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#050c18,#0a1828);color:#1a4060;font-family:Space Mono,monospace;font-size:10px;letter-spacing:2px;">PREVIEW</div></div><div class="portfolio-preview-overlay"><span>Ver projeto</span></div><div class="portfolio-info"><div class="portfolio-name">Agente de Atendimento IA</div><span class="portfolio-tag">WhatsApp + IA</span></div></a>
+<a class="portfolio-card" href="#" target="_blank"><div class="portfolio-preview"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0518,#150a30);color:#2a1060;font-family:Space Mono,monospace;font-size:10px;letter-spacing:2px;">PREVIEW</div></div><div class="portfolio-preview-overlay"><span>Ver projeto</span></div><div class="portfolio-info"><div class="portfolio-name">Sistema de CRM Automatico</div><span class="portfolio-tag">n8n + Automacao</span></div></a>
+<a class="portfolio-card" href="#" target="_blank"><div class="portfolio-preview"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#031510,#051a14);color:#0a3020;font-family:Space Mono,monospace;font-size:10px;letter-spacing:2px;">PREVIEW</div></div><div class="portfolio-preview-overlay"><span>Ver projeto</span></div><div class="portfolio-info"><div class="portfolio-name">Dashboard de Vendas</div><span class="portfolio-tag">Next.js + Supabase</span></div></a>
+<a class="portfolio-card" href="#" target="_blank"><div class="portfolio-preview"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0a0810,#14101e);color:#201840;font-family:Space Mono,monospace;font-size:10px;letter-spacing:2px;">PREVIEW</div></div><div class="portfolio-preview-overlay"><span>Ver projeto</span></div><div class="portfolio-info"><div class="portfolio-name">Funil de Leads Automatico</div><span class="portfolio-tag">Marketing IA</span></div></a>
+</div></section>
+<section id="contato" class="cta-section" style="background:var(--bg);"><div class="section-tag" style="margin-bottom:20px;">Contato</div>
+<h2 class="cta-title">VAMOS<br><span class="cyan">AUTOMATIZAR</span><br>SEU NEGOCIO?</h2>
+<p class="cta-desc">Entre em contato agora e receba um diagnostico gratuito das melhores oportunidades de automacao para sua empresa.</p>
+<div class="cta-btns"><a href="https://wa.me/5548999999999" class="btn-cyan">Falar no WhatsApp</a><a href="mailto:contato@rga-technologies.com" class="btn-outline">Enviar e-mail</a></div>
+</section>
+<footer><div class="footer-logo"><img src="deixe_a_logo_202603301200_1.png" alt="RGA Technologies" onerror="this.style.display='none'">RGA Technologies</div><div class="footer-copy">2026 RGA Technologies - Automacao - IA - Sistemas sob medida</div></footer>
+<script>(function(){var c=document.getElementById("beamsCanvas");if(!c)return;var ctx=c.getContext("2d");function rs(){c.width=window.innerWidth;c.height=window.innerHeight}rs();window.addEventListener("resize",rs);var N=18,beams=[];function rand(a,b){return a+Math.random()*(b-a)}function mk(){var s=Math.floor(Math.random()*4),w=c.width,h=c.height,x,y;if(s===0){x=rand(0,w);y=0}else if(s===1){x=w;y=rand(0,h)}else if(s===2){x=rand(0,w);y=h}else{x=0;y=rand(0,h)}var r=Math.random(),hu=r<0.45?rand(185,205):r<0.75?rand(210,230):rand(265,290);return{x:x,y:y,tx:w/2+rand(-150,150),ty:h/2+rand(-150,150),w:rand(1,2.8),a:0,ma:rand(0.08,0.22),sp:rand(0.002,0.007),p:Math.random(),hu:hu,len:rand(0.3,0.75)}}for(var i=0;i<N;i++)beams.push(mk());function drw(b){var hT=Math.min(b.p,1),tT=Math.max(b.p-b.len,0);var hx=b.x+(b.tx-b.x)*hT,hy=b.y+(b.ty-b.y)*hT,tx=b.x+(b.tx-b.x)*tT,ty=b.y+(b.ty-b.y)*tT;var g=ctx.createLinearGradient(tx,ty,hx,hy);g.addColorStop(0,"hsla("+b.hu+",100%,65%,0)");g.addColorStop(0.6,"hsla("+b.hu+",100%,65%,"+b.a*0.5+")");g.addColorStop(1,"hsla("+b.hu+",100%,75%,"+b.a+")");ctx.save();ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(hx,hy);ctx.strokeStyle=g;ctx.lineWidth=b.w;ctx.lineCap="round";ctx.shadowColor="hsla("+b.hu+",100%,60%,0.5)";ctx.shadowBlur=12;ctx.stroke();ctx.restore()}function anim(){ctx.clearRect(0,0,c.width,c.height);for(var i=0;i<beams.length;i++){var b=beams[i];b.p+=b.sp;if(b.p<0.15)b.a=(b.p/0.15)*b.ma;else if(b.p>0.8)b.a=((1-b.p)/0.2)*b.ma;else b.a=b.ma;if(b.p>1.2)beams[i]=mk();if(b.p>b.len*0.05)drw(b)}requestAnimationFrame(anim)}anim()})();</script>
+</body></html>
