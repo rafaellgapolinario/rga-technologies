@@ -77,8 +77,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 .s-title .c{color:var(--c)}.s-title .p{color:var(--ps)}
 
 /* BENTO — COMPACTO */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(120px,auto);gap:2px;background:var(--bd);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
-.bc{background:var(--bg2);padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:background .3s}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(100px,auto);gap:2px;background:var(--bd);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.bc{background:var(--bg2);padding:16px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:background .3s}
 .bc::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:0;transition:opacity .3s}
 .bc:hover{background:var(--bg3)}.bc:hover::before{opacity:1}
 .bc-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.bc-bg img{width:100%;height:100%;object-fit:cover;opacity:.08;transition:opacity .3s;filter:saturate(.5)}
@@ -86,8 +86,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 .bc>div:not(.bc-bg):not(.bc-glow){position:relative;z-index:1}
 .bc-glow{position:absolute;width:140px;height:140px;border-radius:50%;filter:blur(60px);bottom:-40px;right:-40px;opacity:.1;pointer-events:none;z-index:0}
 .bc-num{font-family:"Space Mono",monospace;font-size:9px;color:var(--tm);letter-spacing:2px;margin-bottom:auto}
-.bc-icon{font-size:16px;margin-bottom:4px}
-.bc-title{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;color:var(--t)}
+.bc-icon{font-size:20px;margin-bottom:6px}
+.bc-title{font-size:13px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;color:var(--t)}
 .bc-desc{font-size:11px;color:var(--tm);line-height:1.6;margin-bottom:10px}
 .bc-tags{display:flex;flex-wrap:wrap;gap:4px}
 .bc-tag{font-family:"Space Mono",monospace;font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.15);color:rgba(0,212,255,.7)}
@@ -462,6 +462,68 @@ document.addEventListener("click",function(e){
 </script>
 <script>(function(){  var btn=document.getElementById("backToTop");  if(!btn)return;  window.addEventListener("scroll",function(){    if(window.pageYOffset>300){btn.classList.add("visible")}    else{btn.classList.remove("visible")}  });})();</script>
 <script>(function(){  var dot=document.getElementById("cursorDot");  var ring=document.getElementById("cursorRing");  if(!dot||!ring)return;  var mx=window.innerWidth/2,my=window.innerHeight/2;  document.addEventListener("mousemove",function(e){    mx=e.clientX;my=e.clientY;    dot.style.left=mx+"px";dot.style.top=my+"px";  });  // Ring segue com delay suave  var rx=mx,ry=my;  function animRing(){    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;    ring.style.left=rx+"px";ring.style.top=ry+"px";    requestAnimationFrame(animRing);  }  animRing();  // Hover em links e botoes  document.querySelectorAll("a,button,.pj-card-new,.bc,.tc").forEach(function(el){    el.addEventListener("mouseenter",function(){ring.classList.add("hovering")});    el.addEventListener("mouseleave",function(){ring.classList.remove("hovering")});  });  // Esconder cursor nativo  document.body.style.cursor="none";  document.querySelectorAll("a,button").forEach(function(el){el.style.cursor="none"});})();</script>
-<canvas id="cursorCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
-<script>(function(){var canvas=document.getElementById("cursorCanvas");if(!canvas)return;var ctx=canvas.getContext("2d");canvas.width=window.innerWidth;canvas.height=window.innerHeight;window.addEventListener("resize",function(){canvas.width=window.innerWidth;canvas.height=window.innerHeight});var mx=window.innerWidth/2,my=window.innerHeight/2;var tx=mx,ty=my,hovering=false;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY});document.querySelectorAll("a,button,.bc,.tc,.pf-card").forEach(function(el){  el.addEventListener("mouseenter",function(){hovering=true});  el.addEventListener("mouseleave",function(){hovering=false});});function draw(){  ctx.clearRect(0,0,canvas.width,canvas.height);  tx+=(mx-tx)*0.15;ty+=(my-ty)*0.15;  var t=Date.now()/1000;  var r=hovering?22:14;  var alpha=hovering?0.9:0.7;  // Anel externo rotativo  ctx.save();ctx.translate(tx,ty);ctx.rotate(t*1.5);  ctx.strokeStyle="rgba(0,212,255,"+alpha+")";ctx.lineWidth=1;  ctx.setLineDash([4,6]);  ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.stroke();  ctx.restore();  // Anel interno  ctx.save();ctx.translate(tx,ty);ctx.rotate(-t*2);  ctx.strokeStyle="rgba(155,92,255,"+(alpha*0.6)+")";ctx.lineWidth=0.5;  ctx.setLineDash([2,8]);  ctx.beginPath();ctx.arc(0,0,r*0.6,0,Math.PI*2);ctx.stroke();  ctx.restore();  // Ponto central  ctx.save();ctx.translate(mx,my);  ctx.fillStyle="rgba(0,212,255,1)";  ctx.shadowColor="rgba(0,212,255,0.8)";ctx.shadowBlur=8;  ctx.beginPath();ctx.arc(0,0,hovering?4:2.5,0,Math.PI*2);ctx.fill();  ctx.restore();  // Linhas de mira (crosshair) no ponto real do mouse  ctx.save();ctx.translate(mx,my);  ctx.strokeStyle="rgba(0,212,255,0.4)";ctx.lineWidth=0.8;ctx.setLineDash([]);  ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(-4,0);ctx.stroke();  ctx.beginPath();ctx.moveTo(4,0);ctx.lineTo(10,0);ctx.stroke();  ctx.beginPath();ctx.moveTo(0,-10);ctx.lineTo(0,-4);ctx.stroke();  ctx.beginPath();ctx.moveTo(0,4);ctx.lineTo(0,10);ctx.stroke();  ctx.restore();  requestAnimationFrame(draw);}draw();})();</script>
+
+
+<canvas id="CX" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;display:block"></canvas>
+<script>
+(function(){
+  var C=document.getElementById("CX");
+  if(!C)return;
+  var X=C.getContext("2d");
+  function resize(){C.width=window.innerWidth;C.height=window.innerHeight}
+  resize();
+  window.addEventListener("resize",resize);
+  var mx=window.innerWidth/2,my=window.innerHeight/2;
+  var lx=mx,ly=my,hov=false;
+  document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY},true);
+  function addHov(sel){
+    document.querySelectorAll(sel).forEach(function(el){
+      el.addEventListener("mouseenter",function(){hov=true});
+      el.addEventListener("mouseleave",function(){hov=false});
+    });
+  }
+  addHov("a,button,.bc,.tc");
+  var t=0;
+  function frame(){
+    t+=0.04;
+    lx+=(mx-lx)*0.13;ly+=(my-ly)*0.13;
+    X.clearRect(0,0,C.width,C.height);
+    var r=hov?20:12;
+    // Anel externo rotativo ciano
+    X.save();X.translate(lx,ly);X.rotate(t);
+    X.beginPath();X.arc(0,0,r,0,Math.PI*2);
+    X.strokeStyle="rgba(0,212,255,"+(hov?0.9:0.6)+")";
+    X.lineWidth=1.5;X.setLineDash([5,5]);X.stroke();
+    X.restore();
+    // Anel medio roxo contra-rotatorio
+    X.save();X.translate(lx,ly);X.rotate(-t*1.6);
+    X.beginPath();X.arc(0,0,r*0.55,0,Math.PI*2);
+    X.strokeStyle="rgba(155,92,255,"+(hov?0.7:0.4)+")";
+    X.lineWidth=1;X.setLineDash([3,7]);X.stroke();
+    X.restore();
+    // Crosshair no mouse real
+    X.save();X.translate(mx,my);
+    X.strokeStyle="rgba(0,212,255,0.5)";X.lineWidth=1;X.setLineDash([]);
+    [[-12,-5],[-5,0],[-12,5]].forEach(function(){});
+    X.beginPath();X.moveTo(-10,0);X.lineTo(-5,0);X.stroke();
+    X.beginPath();X.moveTo(5,0);X.lineTo(10,0);X.stroke();
+    X.beginPath();X.moveTo(0,-10);X.lineTo(0,-5);X.stroke();
+    X.beginPath();X.moveTo(0,5);X.lineTo(0,10);X.stroke();
+    X.restore();
+    // Ponto central com glow
+    X.save();X.translate(mx,my);
+    X.shadowColor="rgba(0,212,255,0.9)";X.shadowBlur=10;
+    X.fillStyle="#00d4ff";
+    X.beginPath();X.arc(0,0,hov?3.5:2,0,Math.PI*2);X.fill();
+    X.restore();
+    requestAnimationFrame(frame);
+  }
+  frame();
+  // Esconder cursor nativo
+  document.documentElement.style.cursor="none";
+  var s=document.createElement("style");
+  s.textContent="*{cursor:none!important}";
+  document.head.appendChild(s);
+})();
+</script>
 </body></html>
