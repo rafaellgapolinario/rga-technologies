@@ -1,5 +1,8 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>RGA Technologies — Automacao & IA sob medida</title>
 <link rel="icon" type="image/png" href="Logo_icon.png">
 <link rel="apple-touch-icon" href="Logo_icon.png">
@@ -24,43 +27,48 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:9px 20px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .2s}
 .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(37,211,102,.3)}
 .lang-selector{display:flex;align-items:center;gap:4px}
-.lang-btn{background:transparent;border:1px solid transparent;color:var(--tm);font-family:"Space Mono",monospace;font-size:10px;letter-spacing:1px;padding:4px 8px;border-radius:4px;cursor:pointer;transition:all .2s;text-transform:uppercase}
+.lang-btn{background:transparent;border:1px solid transparent;color:var(--tm);font-family:"Space Mono",monospace;font-size:10px;letter-spacing:1px;padding:4px 8px;border-radius:4px;cursor:none;transition:all .2s;text-transform:uppercase}
 .lang-btn.active{color:var(--c);border-color:rgba(0,212,255,.3);background:rgba(0,212,255,.06)}
 .lang-sep{color:var(--bd);font-size:10px}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:transparent;border:none}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:none;padding:8px;background:transparent;border:none}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--t);border-radius:2px;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .nav-mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(3,5,13,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);z-index:199;padding:20px 24px;flex-direction:column;gap:4px}
 .nav-mobile-menu.open{display:flex}
 .nav-mobile-link{color:var(--tm);text-decoration:none;font-family:"Space Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:14px 0;border-bottom:1px solid var(--bd);transition:color .2s}
 .nav-mobile-link:hover{color:var(--c)}
-.nav-mobile-wa{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;padding:14px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:"Space Mono",monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:8px}
+.nav-mobile-wa{display:flex;align-items:center;justify-content:center;margin-top:16px;padding:14px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:"Space Mono",monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border-radius:8px}
 
 /* HERO BANNER */
 .hero-banner-block{position:relative;width:100%;height:85vh;min-height:480px;overflow:hidden;z-index:2}
 .hero-banner-inner{width:100%;height:100%;overflow:hidden}
 .hero-banner-inner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 
+/* TECH DIVIDER */
+@keyframes techScan{0%{left:-100%}100%{left:100%}}
+@keyframes cdPulse{0%,100%{opacity:0;transform:scale(.5)}40%,60%{opacity:1;transform:scale(1)}}
+
 /* HERO BODY */
 .hero-body{background:var(--bg);position:relative;z-index:2;padding:72px 60px 90px;text-align:center;border-bottom:1px solid var(--bd)}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:"Space Mono",monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--c);margin-bottom:24px}
-.hero-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(56px,8vw,120px);line-height:.9;letter-spacing:2px;margin-bottom:0}
-.hero-title .line1,.hero-title .line3{color:var(--t)}
-.hero-title .line2{background:linear-gradient(135deg,var(--c),var(--ps));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(56px,8vw,120px);line-height:.9;letter-spacing:2px}
+.hero-title .line1,.hero-title .line3{display:block;color:var(--t)}
+.hero-title .line2{display:block;background:linear-gradient(135deg,var(--c),var(--ps));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-sub{font-size:16px;color:rgba(240,244,255,.75);max-width:560px;margin:22px auto 36px;line-height:1.7}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.hero-metrics{display:flex;gap:0;margin-top:52px;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:rgba(6,10,20,.85);backdrop-filter:blur(12px);width:fit-content;margin-left:auto;margin-right:auto}
+.hero-metrics{display:flex;margin-top:52px;border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:rgba(6,10,20,.85);backdrop-filter:blur(12px);width:fit-content;margin-left:auto;margin-right:auto}
 .metric{padding:20px 40px;display:flex;flex-direction:column;gap:5px;border-right:1px solid var(--bd)}
 .metric:last-child{border-right:none}
 .metric-num{font-family:"Bebas Neue",sans-serif;font-size:44px;line-height:1;background:linear-gradient(135deg,var(--c),var(--ps));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .metric-label{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--tm)}
 
 /* BUTTONS */
-.btn-primary{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:linear-gradient(135deg,var(--c),var(--p));color:#000;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .25s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,212,255,.35)}
-.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:transparent;color:var(--t);font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(0,212,255,.25);border-radius:6px;transition:all .25s}
-.btn-ghost:hover{border-color:var(--c);color:var(--c);background:rgba(0,212,255,.05)}
 .btn-wa{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:all .25s}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(37,211,102,.3)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:transparent;color:var(--t);font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(0,212,255,.25);border-radius:6px;transition:all .25s}
+.btn-ghost:hover{border-color:var(--c);color:var(--c);background:rgba(0,212,255,.05)}
 
 /* MARQUEE */
 .marquee-section{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:16px 0;overflow:hidden;position:relative;z-index:2;background:var(--bg2)}
@@ -70,29 +78,28 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* SECTIONS */
-.section{padding:80px 60px;position:relative;z-index:2;box-sizing:border-box}
+.section{padding:80px 60px;position:relative;z-index:2}
 .s-tag{font-family:"Space Mono",monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--c);margin-bottom:20px;display:flex;align-items:center;gap:12px}
 .s-tag::before{content:"";width:28px;height:1px;background:var(--c)}
 .s-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(32px,4vw,56px);line-height:.95;letter-spacing:1px;margin-bottom:40px}
 .s-title .c{color:var(--c)}.s-title .p{color:var(--ps)}
 
-/* BENTO — COMPACTO */
-.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(120px,auto);gap:2px;background:var(--bd);border:1px solid var(--bd);border-radius:12px;overflow:hidden}
-.bc{background:var(--bg2);padding:18px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:background .3s}
-.bc::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:0;transition:opacity .3s}
-.bc:hover{background:var(--bg3)}.bc:hover::before{opacity:1}
-.bc-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.bc-bg img{width:100%;height:100%;object-fit:cover;opacity:.08;transition:opacity .3s;filter:saturate(.5)}
-.bc:hover .bc-bg img{opacity:.15}
-.bc>div:not(.bc-bg):not(.bc-glow){position:relative;z-index:1}
-.bc-glow{position:absolute;width:140px;height:140px;border-radius:50%;filter:blur(60px);bottom:-40px;right:-40px;opacity:.1;pointer-events:none;z-index:0}
-.bc-num{font-family:"Space Mono",monospace;font-size:9px;color:var(--tm);letter-spacing:2px;margin-bottom:auto}
-.bc-icon{font-size:16px;margin-bottom:4px}
-.bc-title{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px;color:var(--t)}
-.bc-desc{font-size:11px;color:var(--tm);line-height:1.6;margin-bottom:10px}
-.bc-tags{display:flex;flex-wrap:wrap;gap:4px}
-.bc-tag{font-family:"Space Mono",monospace;font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.15);color:rgba(0,212,255,.7)}
-.bc-feat{background:linear-gradient(135deg,rgba(0,212,255,.07),rgba(155,92,255,.07))}
-.sp4{grid-column:span 4}.sp6{grid-column:span 6}.sp3{grid-column:span 3}.sp12{grid-column:span 12}.sr2{grid-row:span 2}
+/* SERVICOS GRID 3x2 */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:14px;overflow:hidden}
+.svc-card{background:var(--bg2);padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:background .25s;position:relative;overflow:hidden;min-height:0}
+.svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:0;transition:opacity .3s}
+.svc-card:hover{background:var(--bg3)}.svc-card:hover::before{opacity:1}
+.svc-card-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.svc-card-bg img{width:100%;height:100%;object-fit:cover;opacity:.06;filter:saturate(.3);transition:opacity .3s}
+.svc-card:hover .svc-card-bg img{opacity:.12}
+.svc-card>*:not(.svc-card-bg){position:relative;z-index:1}
+.svc-top{display:flex;align-items:center;justify-content:space-between}
+.svc-num{font-family:"Space Mono",monospace;font-size:9px;color:var(--c);opacity:.5;letter-spacing:2px}
+.svc-icon{font-size:22px}
+.svc-title{font-size:14px;font-weight:700;color:var(--t);letter-spacing:.3px;line-height:1.3}
+.svc-desc{font-size:12px;color:var(--tm);line-height:1.65;flex:1}
+.svc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.svc-tag{font-family:"Space Mono",monospace;font-size:8px;padding:3px 8px;border-radius:3px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.15);color:rgba(0,212,255,.7)}
 
 /* IMPACT */
 .impact-section{background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);position:relative;z-index:2}
@@ -112,9 +119,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 .why-img-wrap{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3}
 .why-img-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 .why-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,.08),rgba(155,92,255,.04))}
-.why-img-border{position:absolute;inset:-1px;border-radius:16px;border:1px solid rgba(0,212,255,.2);pointer-events:none}
 .why-content{display:flex;flex-direction:column;gap:24px}
-.why-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(36px,4vw,56px);line-height:1;letter-spacing:1px;color:var(--t)}
+.why-title{font-family:"Bebas Neue",sans-serif;font-size:clamp(36px,4vw,56px);line-height:1;color:var(--t)}
 .why-title .c{color:var(--c)}
 .why-desc{font-size:15px;color:var(--tm);line-height:1.8}
 .why-items{display:flex;flex-direction:column;gap:16px}
@@ -128,10 +134,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 .pstep{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid var(--bd)}
 .pstep:first-child{border-top:1px solid var(--bd)}
 .pn{font-family:"Bebas Neue",sans-serif;font-size:40px;color:var(--c);opacity:.18;min-width:48px;line-height:1;transition:all .2s}
-.pstep:hover .pn{opacity:.7;color:var(--c)}
+.pstep:hover .pn{opacity:.7}
 .pt{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
 .pd{font-size:13px;color:var(--tm);line-height:1.7}
-.terminal{background:#040810;border:1px solid var(--bd);border-radius:10px;overflow:hidden;box-shadow:0 0 40px rgba(0,212,255,.05)}
+.terminal{background:#040810;border:1px solid var(--bd);border-radius:10px;overflow:hidden}
 .t-bar{background:#08101e;padding:12px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--bd)}
 .t-dots{display:flex;gap:6px}.tdot{width:10px;height:10px;border-radius:50%}
 .tdot-r{background:#ff5f57}.tdot-y{background:#ffbd2e}.tdot-g{background:#28ca41}
@@ -141,7 +147,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:0 60px;height:64px;d
 .t-cur{display:inline-block;width:7px;height:12px;background:var(--c);animation:blink 1s infinite;vertical-align:bottom}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
 
-/* TC TESTIMONIALS */
+/* PORTFOLIO */
+.pf-single-wrap{max-width:800px;margin:0 auto}
+.pf-card{background:var(--bg3);border:1px solid rgba(0,212,255,.2);border-radius:20px;overflow:hidden;text-decoration:none;display:block;transition:all .3s}
+.pf-card:hover{border-color:rgba(0,212,255,.5);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,212,255,.1)}
+.pf-img{height:320px;overflow:hidden;position:relative;background:#060a14}
+.pf-img img{width:100%;height:100%;object-fit:cover;opacity:.55;display:block}
+.pf-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,5,13,.1) 0%,rgba(3,5,13,.75) 80%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:40px;gap:14px}
+.pf-luna-text{font-family:"Bebas Neue",sans-serif;font-size:80px;color:#fff;letter-spacing:12px;text-shadow:0 0 60px rgba(0,212,255,1);line-height:1}
+.pf-luna-sub{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:4px;color:rgba(0,212,255,.9);text-transform:uppercase}
+.pf-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;background:linear-gradient(135deg,var(--c),var(--p));color:#000;font-family:"Space Mono",monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;text-decoration:none;margin-top:4px}
+
+/* TESTIMONIALS */
 .tc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:14px;overflow:hidden}
 .tc{background:var(--bg2);padding:28px;position:relative;overflow:hidden;transition:background .2s}
 .tc:hover{background:var(--bg3)}
@@ -172,22 +189,9 @@ footer{position:relative;z-index:2;border-top:1px solid var(--bd);padding:28px 6
 .footer-copy{font-family:"Space Mono",monospace;font-size:9px;color:var(--tm);letter-spacing:1px}
 
 /* BACK TO TOP */
-.back-to-top{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:linear-gradient(135deg,var(--c),var(--p));border:none;border-radius:50%;cursor:none;z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(16px);transition:opacity .3s,transform .3s,box-shadow .2s;box-shadow:0 4px 20px rgba(0,212,255,.3)}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:linear-gradient(135deg,var(--c),var(--p));border:none;border-radius:50%;cursor:none;z-index:300;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(16px);transition:opacity .3s,transform .3s;box-shadow:0 4px 20px rgba(0,212,255,.3)}
 .back-to-top.visible{opacity:1;transform:translateY(0)}
-.back-to-top:hover{box-shadow:0 8px 30px rgba(0,212,255,.5);transform:translateY(-3px)}
 .back-to-top svg{width:16px;height:16px;fill:none;stroke:#000;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-
-/* CURSOR */
-/* cursor handled by canvas */
-.cursor-dot-DISABLED{width:7px;height:7px;background:var(--c);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;box-shadow:0 0 10px var(--c),0 0 20px rgba(0,212,255,.5)}
-.cursor-ring-DISABLED{width:28px;height:28px;border:1px solid rgba(0,212,255,.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .15s,height .15s,border-color .15s,background .15s;mix-blend-mode:screen}
-.cursor-ring.hovering{width:44px;height:44px;border-color:var(--c);background:rgba(0,212,255,.05)}
-
-/* TECH BORDER */
-@keyframes techScan{0%{left:-100%}100%{left:100%}}
-@keyframes cdPulse{0%,100%{opacity:0;transform:scale(.5)}40%,60%{opacity:1;transform:scale(1)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes borderFlow{0%{background-position:0% 0%,0% 0%}100%{background-position:0% 0%,300% 0%}}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -196,13 +200,11 @@ footer{position:relative;z-index:2;border-top:1px solid var(--bd);padding:28px 6
   .nav-hamburger{display:flex}
   .hero-banner-block{height:55vh;min-height:280px}
   .hero-body{padding:48px 16px 64px}
-  .hero-title{font-size:clamp(44px,12vw,72px)}
   .hero-metrics{flex-direction:column;width:100%;border-radius:8px}
   .metric{border-right:none!important;border-bottom:1px solid var(--bd);padding:16px 20px}
   .metric:last-child{border-bottom:none}
   .section{padding:56px 16px}
-  .bento{grid-template-columns:1fr}
-  .bc,.bc-feat,.sp6,.sp4,.sp3{grid-column:span 1!important;grid-row:span 1!important}
+  .svc-grid{grid-template-columns:1fr}
   .impact-track{grid-template-columns:1fr}
   .impact-divider{display:none}
   .impact-item{padding:28px 16px}
@@ -213,95 +215,170 @@ footer{position:relative;z-index:2;border-top:1px solid var(--bd);padding:28px 6
   footer{flex-direction:column;gap:12px;text-align:center;padding:20px 16px}
   .why-grid{grid-template-columns:1fr;gap:36px}
   .why-section{padding:64px 16px}
+  .pf-luna-text{font-size:56px}
 }
 @media(min-width:769px) and (max-width:1100px){
   .section{padding:70px 32px}
-  .hero-body{padding:60px 32px}
-  .bento{grid-template-columns:repeat(6,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
   .proc-grid{grid-template-columns:1fr;gap:48px}
   .tc-grid{grid-template-columns:1fr 1fr}
   .why-grid{grid-template-columns:1fr;gap:40px}
+  .why-section{padding:64px 32px}
 }
-a,button,.bc,.tc,.pf-card{cursor:none}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:14px;overflow:hidden;max-width:100%}.svc-card{background:var(--bg2);padding:32px 28px;display:flex;flex-direction:column;gap:14px;transition:background .25s;position:relative;overflow:hidden}.svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:0;transition:opacity .3s}.svc-card:hover{background:var(--bg3)}.svc-card:hover::before{opacity:1}.svc-card-top{display:flex;align-items:center;justify-content:space-between}.svc-num{font-family:"Space Mono",monospace;font-size:9px;color:var(--c);opacity:.5;letter-spacing:2px}.svc-icon{font-size:22px}.svc-title{font-size:15px;font-weight:700;color:var(--t);letter-spacing:.3px}.svc-desc{font-size:13px;color:var(--tm);line-height:1.7;flex:1}.svc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}.svc-tag{font-family:"Space Mono",monospace;font-size:8px;padding:3px 9px;border-radius:4px;background:rgba(0,212,255,.06);border:1px solid rgba(0,212,255,.15);color:rgba(0,212,255,.7);letter-spacing:.5px}.svc-card-img{position:absolute;inset:0;z-index:0;overflow:hidden}.svc-card-img img{width:100%;height:100%;object-fit:cover;opacity:.05;filter:saturate(.3);transition:opacity .3s}.svc-card:hover .svc-card-img img{opacity:.1}.svc-card>*:not(.svc-card-img){position:relative;z-index:1}@media(max-width:900px){.svc-grid{grid-template-columns:1fr}}@media(min-width:901px) and (max-width:1100px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 <div class="grid-bg"></div>
 <canvas id="beamsCanvas"></canvas>
-<nav>  <a href="#" class="nav-brand">    <img class="nav-logo-img" src="Logo_icon.png" alt="RGA">      </a>  <ul class="nav-links">    <li><a href="#servicos" data-i18n="nav_servicos">Servicos</a></li>    <li><a href="#processo" data-i18n="nav_processo">Processo</a></li>    <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>    <li><a href="#resultados" data-i18n="nav_resultados">Resultados</a></li>    <li><a href="#contato" data-i18n="nav_contato">Contato</a></li>  </ul>  <div style="display:flex;align-items:center;gap:14px">    <div class="lang-selector">      <button class="lang-btn active" onclick="setLang('pt')" id="lang-pt">PT</button>      <span class="lang-sep">|</span>      <button class="lang-btn" onclick="setLang('en')" id="lang-en">EN</button>      <span class="lang-sep">|</span>      <button class="lang-btn" onclick="setLang('es')" id="lang-es">ES</button>    </div>    <a href="https://wa.me/5548984867394" class="nav-cta" target="_blank" data-i18n="nav_wa">WhatsApp</a>    <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()" aria-label="Menu">      <span></span><span></span><span></span>    </button>  </div></nav><div class="nav-mobile-menu" id="mobileMenu">  <a class="nav-mobile-link" href="#servicos" onclick="closeMenu()" data-i18n="nav_servicos">Servicos</a>  <a class="nav-mobile-link" href="#processo" onclick="closeMenu()" data-i18n="nav_processo">Processo</a>  <a class="nav-mobile-link" href="#portfolio" onclick="closeMenu()" data-i18n="nav_portfolio">Portfolio</a>  <a class="nav-mobile-link" href="#resultados" onclick="closeMenu()" data-i18n="nav_resultados">Resultados</a>  <a class="nav-mobile-link" href="#contato" onclick="closeMenu()" data-i18n="nav_contato">Contato</a>  <a class="nav-mobile-wa" href="https://wa.me/5548984867394" target="_blank" data-i18n="nav_wa">WhatsApp</a></div>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <img class="nav-logo-img" src="Logo_icon.png" alt="RGA">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#servicos" data-i18n="nav_servicos">Servicos</a></li>
+    <li><a href="#processo" data-i18n="nav_processo">Processo</a></li>
+    <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
+    <li><a href="#resultados" data-i18n="nav_resultados">Resultados</a></li>
+    <li><a href="#contato" data-i18n="nav_contato">Contato</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="lang-selector">
+      <button class="lang-btn active" onclick="setLang('pt')" id="lang-pt">PT</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" onclick="setLang('en')" id="lang-en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" onclick="setLang('es')" id="lang-es">ES</button>
+    </div>
+    <a href="https://wa.me/5548984867394" class="nav-cta" target="_blank" data-i18n="nav_wa">WhatsApp</a>
+    <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a class="nav-mobile-link" href="#servicos" onclick="closeMenu()">Servicos</a>
+  <a class="nav-mobile-link" href="#processo" onclick="closeMenu()">Processo</a>
+  <a class="nav-mobile-link" href="#portfolio" onclick="closeMenu()">Portfolio</a>
+  <a class="nav-mobile-link" href="#resultados" onclick="closeMenu()">Resultados</a>
+  <a class="nav-mobile-link" href="#contato" onclick="closeMenu()">Contato</a>
+  <a class="nav-mobile-wa" href="https://wa.me/5548984867394" target="_blank">WhatsApp</a>
+</div>
+<!-- HERO BANNER -->
 <div class="hero-banner-block">
   <div class="hero-banner-inner">
-    <img src="Quero_a_imagem_202603301159_1.png?v=20260330" alt="RGA Technologies" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block" onerror="this.style.background='#03050d'">
+    <img src="Quero_a_imagem_202603301159_1.png?v=2" alt="RGA Technologies">
   </div>
 </div>
+<!-- TECH DIVIDER -->
 <div style="position:relative;width:100%;z-index:10;overflow:hidden">
-  <!-- linha principal ciano -->
-  <div style="height:3px;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.4) 20%,#00d4ff 50%,rgba(0,212,255,0.4) 80%,transparent);box-shadow:0 0 20px rgba(0,212,255,0.6),0 0 40px rgba(0,212,255,0.3);animation:techScan 2.5s ease-in-out infinite"></div>
-  <!-- linha roxa delay -->
-  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(155,92,255,0.6) 30%,#c084fc 50%,rgba(155,92,255,0.6) 70%,transparent);animation:techScan 2.5s ease-in-out 1.25s infinite;margin-top:3px"></div>
-  <!-- pontos de circuito -->
+  <div style="height:3px;background:linear-gradient(90deg,transparent,rgba(0,212,255,.4) 20%,#00d4ff 50%,rgba(0,212,255,.4) 80%,transparent);box-shadow:0 0 20px rgba(0,212,255,.6),0 0 40px rgba(0,212,255,.3);animation:techScan 2.5s ease-in-out infinite"></div>
+  <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(155,92,255,.6) 30%,#c084fc 50%,rgba(155,92,255,.6) 70%,transparent);animation:techScan 2.5s ease-in-out 1.25s infinite;margin-top:3px"></div>
   <div style="display:flex;justify-content:space-between;padding:6px 5%;align-items:center">
     <div style="width:5px;height:5px;border-radius:50%;background:#00d4ff;animation:cdPulse 2s 0s infinite"></div>
-    <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,212,255,0.3),transparent);margin:0 8px"></div>
-    <div style="width:4px;height:4px;border-radius:50%;background:#9b5cff;animation:cdPulse 2s 0.4s infinite"></div>
-    <div style="height:1px;flex:1;background:rgba(0,212,255,0.1);margin:0 8px"></div>
-    <div style="width:5px;height:5px;border-radius:50%;background:#00d4ff;animation:cdPulse 2s 0.8s infinite"></div>
-    <div style="height:1px;flex:1;background:rgba(0,212,255,0.1);margin:0 8px"></div>
+    <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,212,255,.3),transparent);margin:0 8px"></div>
+    <div style="width:4px;height:4px;border-radius:50%;background:#9b5cff;animation:cdPulse 2s .4s infinite"></div>
+    <div style="height:1px;flex:1;background:rgba(0,212,255,.1);margin:0 8px"></div>
+    <div style="width:5px;height:5px;border-radius:50%;background:#00d4ff;animation:cdPulse 2s .8s infinite"></div>
+    <div style="height:1px;flex:1;background:rgba(0,212,255,.1);margin:0 8px"></div>
     <div style="width:4px;height:4px;border-radius:50%;background:#c084fc;animation:cdPulse 2s 1.2s infinite"></div>
-    <div style="height:1px;flex:1;background:rgba(0,212,255,0.1);margin:0 8px"></div>
+    <div style="height:1px;flex:1;background:rgba(0,212,255,.1);margin:0 8px"></div>
     <div style="width:5px;height:5px;border-radius:50%;background:#00d4ff;animation:cdPulse 2s 1.6s infinite"></div>
-    <div style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.3));margin:0 8px"></div>
+    <div style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(0,212,255,.3));margin:0 8px"></div>
     <div style="width:4px;height:4px;border-radius:50%;background:#9b5cff;animation:cdPulse 2s 2s infinite"></div>
   </div>
 </div>
-<div class="hero-body"><p class="hero-eyebrow" data-i18n="hero_eyebrow"><span></span>Automacao & IA sob medida<span style="transform:scaleX(-1);display:inline-block"></span></p><h1 class="hero-title"><span class="line1" data-i18n="hero_line1">SISTEMAS QUE</span><span class="line2" data-i18n="hero_line2">TRABALHAM</span><span class="line3" data-i18n="hero_line3">POR VOCE</span></h1><p class="hero-sub" data-i18n="hero_sub">Desenvolvemos agentes de IA, automacoes avancadas, landing pages de alta conversao e sistemas sob medida para escalar seu negocio.</p><div class="hero-ctas"><a href="https://wa.me/5548984867394" class="btn-wa" target="_blank">WhatsApp</a><a href="#servicos" class="btn-ghost">Ver Solucoes</a></div><div class="hero-metrics"><div class="metric"><span class="metric-num">48h</span><span class="metric-label"><span data-i18n="metric1">Economizadas / semana</span></span></div><div class="metric"><span class="metric-num">3x</span><span class="metric-label"><span data-i18n="metric2">Mais leads convertidos</span></span></div><div class="metric"><span class="metric-num">72h</span><span class="metric-label"><span data-i18n="metric3">Da ideia ao ar</span></span></div><div class="metric"><span class="metric-num">100%</span><span class="metric-label"><span data-i18n="metric4">Personalizado</span></span></div></div></div>
+<!-- HERO BODY -->
+<div class="hero-body">
+  <p class="hero-eyebrow"><span></span>Automacao & IA sob medida</p>
+  <h1 class="hero-title">
+    <span class="line1">SISTEMAS QUE</span>
+    <span class="line2">TRABALHAM</span>
+    <span class="line3">POR VOCE</span>
+  </h1>
+  <p class="hero-sub" data-i18n="hero_sub">Desenvolvemos agentes de IA, automacoes avancadas, landing pages de alta conversao e sistemas sob medida para escalar seu negocio.</p>
+  <div class="hero-ctas">
+    <a href="https://wa.me/5548984867394" class="btn-wa" target="_blank">WhatsApp</a>
+    <a href="#servicos" class="btn-ghost">Ver Solucoes</a>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric"><span class="metric-num">48h</span><span class="metric-label" data-i18n="metric1">Economizadas / semana</span></div>
+    <div class="metric"><span class="metric-num">3x</span><span class="metric-label" data-i18n="metric2">Mais leads convertidos</span></div>
+    <div class="metric"><span class="metric-num">72h</span><span class="metric-label" data-i18n="metric3">Da ideia ao ar</span></div>
+    <div class="metric"><span class="metric-num">100%</span><span class="metric-label" data-i18n="metric4">Personalizado</span></div>
+  </div>
+</div>
+<!-- MARQUEE -->
 <div class="marquee-section"><div class="marquee-track">
-<span class="marquee-item"><span class="m-dot"></span>Agentes de IA</span>
-<span class="marquee-item"><span class="m-dot"></span>Automacao n8n</span>
-<span class="marquee-item"><span class="m-dot"></span>Landing Pages</span>
-<span class="marquee-item"><span class="m-dot"></span>Claude AI</span>
-<span class="marquee-item"><span class="m-dot"></span>WhatsApp Bot</span>
-<span class="marquee-item"><span class="<div class="svc-grid"><div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-card-top"><span class="svc-num">01</span><span class="svc-icon">&#128640;</span></div><div class="svc-title">Landing Pages de Alta Conversao</div><p class="svc-desc">Design premium, copy persuasivo e carregamento ultra-rapido. Da ideia ao ar em 72 horas.</p><div class="svc-tags"><span class="svc-tag">Next.js</span><span class="svc-tag">Design Premium</span><span class="svc-tag">SEO</span><span class="svc-tag">72h</span></div></div><div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-card-top"><span class="svc-num">02</span><span class="svc-icon">&#129302;</span></div><div class="svc-title">Agentes de IA</div><p class="svc-desc">Agentes autonomos que atendem, vendem e decidem 24/7 sem equipe adicional.</p><div class="svc-tags"><span class="svc-tag">Claude AI</span><span class="svc-tag">GPT-4o</span></div></div><div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-card-top"><span class="svc-num">03</span><span class="svc-icon">&#9889;</span></div><div class="svc-title">Automacao n8n</div><p class="svc-desc">Conectamos todos seus sistemas eliminando tarefas manuais e erros humanos.</p><div class="svc-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Make</span><span class="svc-tag">Zapier</span></div></div><div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-card-top"><span class="svc-num">04</span><span class="svc-icon">&#128172;</span></div><div class="svc-title">WhatsApp & Atendimento IA</div><p class="svc-desc">Bots inteligentes que qualificam, vendem e agendam no piloto automatico.</p><div class="svc-tags"><span class="svc-tag">WhatsApp API</span><span class="svc-tag">Evolution</span></div></div><div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-card-top"><span class="svc-num">05</span><span class="svc-icon">&#128296;</span></div><div class="svc-title">Sistemas & Apps Web</div><p class="svc-desc">Dashboards, portais e aplicacoes web com design premium e alta performance.</p><div class="svc-tags"><span class="svc-tag">Next.js</span><span class="svc-tag">Supabase</span><span class="svc-tag">Vercel</span></div></div><div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-card-top"><span class="svc-num">06</span><span class="svc-icon">&#128202;</span></div><div class="svc-title">CRM & Marketing Automatico</div><p class="svc-desc">Funis, email sequences e campanhas que convertem enquanto voce dorme.</p><div class="svc-tags"><span class="svc-tag">Email</span><span class="svc-tag">Leads</span><span class="svc-tag">Funil</span></div></div></div>n>
-<span class="marquee-item"><span class="m-dot"></span>WhatsApp Bot</span>
-<span class="marquee-item"><span class="m-dot"></span>CRM Automatico</span>
-<span class="marquee-item"><span class="m-dot"></span>Next.js Apps</span>
-<span class="marquee-item"><span class="m-dot"></span>Supabase</span>
-<span class="marquee-item"><span class="m-dot"></span>Integracao API</span>
-<span class="marquee-item"><span class="m-dot"></span>Make Zapier</span>
-<span class="marquee-item"><span class="m-dot"></span>Sistemas Web</span>
-<span class="marquee-item"><span class="m-dot"></span>Marketing IA</span>
+  <span class="marquee-item"><span class="m-dot"></span>Agentes de IA</span><span class="marquee-item"><span class="m-dot"></span>Automacao n8n</span><span class="marquee-item"><span class="m-dot"></span>Landing Pages</span><span class="marquee-item"><span class="m-dot"></span>Claude AI</span><span class="marquee-item"><span class="m-dot"></span>WhatsApp Bot</span><span class="marquee-item"><span class="m-dot"></span>CRM Automatico</span><span class="marquee-item"><span class="m-dot"></span>Next.js</span><span class="marquee-item"><span class="m-dot"></span>Supabase</span>
+  <span class="marquee-item"><span class="m-dot"></span>Agentes de IA</span><span class="marquee-item"><span class="m-dot"></span>Automacao n8n</span><span class="marquee-item"><span class="m-dot"></span>Landing Pages</span><span class="marquee-item"><span class="m-dot"></span>Claude AI</span><span class="marquee-item"><span class="m-dot"></span>WhatsApp Bot</span><span class="marquee-item"><span class="m-dot"></span>CRM Automatico</span><span class="marquee-item"><span class="m-dot"></span>Next.js</span><span class="marquee-item"><span class="m-dot"></span>Supabase</span>
 </div></div>
+<!-- SERVICOS -->
 <section class="section" id="servicos" style="background:var(--bg2)">
   <div class="s-tag" data-i18n="sect_servicos">O que fazemos</div>
   <h2 class="s-title">NOSSAS<br><span class="c">ESPECIALIDADES</span></h2>
-  <div class="bc sp3"><div class="bc-bg"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&h=400&fit=crop&q=70" loading="lazy" alt=""></div><div><div class="bc-num">02</div></div><div class="bc-icon">&#129302;</div><div class="bc-title">Agentes de IA</div><p class="bc-desc">Agentes autonomos que atendem, vendem e decidem 24/7 sem equipe adicional.</p><div class="bc-tags"><span class="bc-tag">Claude AI</span><span class="bc-tag">GPT-4o</span></div></div><div class="bc-glow" style="background:var(--p)"></div></div><div class="bc sp3"><div class="bc-bg"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&h=400&fit=crop&q=70" loading="lazy" alt=""></div><div><div class="bc-num">03</div></div><div class="bc-icon">&#9889;</div><div class="bc-title">Automacao n8n</div><p class="bc-desc">Conectamos todos seus sistemas eliminando tarefas manuais e erros humanos.</p><div class="bc-tags"><span class="bc-tag">n8n</span><span class="bc-tag">Make</span><span class="bc-tag">Zapier</span></div></div><div class="bc-glow" style="background:#f0c060"></div></div><div class="bc sp4"><div class="bc-bg"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop&q=70" loading="lazy" alt=""></div><div><div class="bc-num">04</div></div><div class="bc-icon">&#128172;</div><div class="bc-title">WhatsApp & Atendimento IA</div><p class="bc-desc">Bots inteligentes que qualificam, vendem e agendam no piloto automatico.</p><div class="bc-tags"><span class="bc-tag">WhatsApp API</span><span class="bc-tag">Evolution</span></div></div><div class="bc-glow" style="background:#25d366"></div></div><div class="bc sp4"><div class="bc-bg"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop&q=70" loading="lazy" alt=""></div><div><div class="bc-num">05</div></div><div class="bc-icon">&#128296;</div><div class="bc-title">Sistemas & Apps Web</div><p class="bc-desc">Dashboards, portais e aplicacoes web com design premium e alta performance.</p><div class="bc-tags"><span class="bc-tag">Next.js</span><span class="bc-tag">Supabase</span><span class="bc-tag">Vercel</span></div></div><div class="bc-glow" style="background:var(--c)"></div></div><div class="bc sp4"><div class="bc-bg"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=70" loading="lazy" alt=""></div><div><div class="bc-num">06</div></div><div class="bc-icon">&#128202;</div><div class="bc-title">CRM & Marketing Automatico</div><p class="bc-desc">Funis, email sequences e campanhas que convertem enquanto voce dorme.</p><div class="bc-tags"><span class="bc-tag">Email</span><span class="bc-tag">Leads</span><span class="bc-tag">Funil</span></div></div><div class="bc-glow" style="background:var(--ps)"></div></div></div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-card-bg"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-top"><span class="svc-num">01</span><span class="svc-icon">&#128640;</span></div><div class="svc-title">Landing Pages de Alta Conversao</div><p class="svc-desc">Design premium, copy persuasivo e carregamento ultra-rapido. Da ideia ao ar em 72 horas.</p><div class="svc-tags"><span class="svc-tag">Next.js</span><span class="svc-tag">Design Premium</span><span class="svc-tag">SEO</span><span class="svc-tag">72h</span></div></div>
+    <div class="svc-card"><div class="svc-card-bg"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-top"><span class="svc-num">02</span><span class="svc-icon">&#129302;</span></div><div class="svc-title">Agentes de IA</div><p class="svc-desc">Agentes autonomos que atendem, vendem e decidem 24/7 sem equipe adicional.</p><div class="svc-tags"><span class="svc-tag">Claude AI</span><span class="svc-tag">GPT-4o</span></div></div>
+    <div class="svc-card"><div class="svc-card-bg"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-top"><span class="svc-num">03</span><span class="svc-icon">&#9889;</span></div><div class="svc-title">Automacao n8n</div><p class="svc-desc">Conectamos todos seus sistemas eliminando tarefas manuais e erros humanos.</p><div class="svc-tags"><span class="svc-tag">n8n</span><span class="svc-tag">Make</span><span class="svc-tag">Zapier</span></div></div>
+    <div class="svc-card"><div class="svc-card-bg"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-top"><span class="svc-num">04</span><span class="svc-icon">&#128172;</span></div><div class="svc-title">WhatsApp & Atendimento IA</div><p class="svc-desc">Bots inteligentes que qualificam, vendem e agendam no piloto automatico.</p><div class="svc-tags"><span class="svc-tag">WhatsApp API</span><span class="svc-tag">Evolution</span></div></div>
+    <div class="svc-card"><div class="svc-card-bg"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-top"><span class="svc-num">05</span><span class="svc-icon">&#128296;</span></div><div class="svc-title">Sistemas & Apps Web</div><p class="svc-desc">Dashboards, portais e aplicacoes web com design premium e alta performance.</p><div class="svc-tags"><span class="svc-tag">Next.js</span><span class="svc-tag">Supabase</span><span class="svc-tag">Vercel</span></div></div>
+    <div class="svc-card"><div class="svc-card-bg"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&q=60" loading="lazy" alt=""></div><div class="svc-top"><span class="svc-num">06</span><span class="svc-icon">&#128202;</span></div><div class="svc-title">CRM & Marketing Automatico</div><p class="svc-desc">Funis, email sequences e campanhas que convertem enquanto voce dorme.</p><div class="svc-tags"><span class="svc-tag">Email</span><span class="svc-tag">Leads</span><span class="svc-tag">Funil</span></div></div>
+  </div>
 </section>
-<!-- FRASES DE IMPACTO --><section class="impact-section" style="position:relative;z-index:2;padding:0;overflow:hidden"><div class="impact-track"><div class="impact-item"><span class="impact-num">01</span><p class="impact-text" data-i18n="impact1a">Nao importa o desafio.</p><p class="impact-highlight" data-i18n="impact1b">A SOLUCAO SOMOS NOS.</p></div><div class="impact-divider"></div><div class="impact-item"><span class="impact-num">02</span><p class="impact-text" data-i18n="impact2a">Nos fazemos acontecer.</p><p class="impact-highlight" data-i18n="impact2b">SEMPRE.</p></div><div class="impact-divider"></div><div class="impact-item"><span class="impact-num">03</span><p class="impact-text" data-i18n="impact3a">Complicou?</p><p class="impact-highlight" data-i18n="impact3b">A GENTE RESOLVE.</p></div><div class="impact-divider"></div><div class="impact-item"><span class="impact-num">04</span><p class="impact-text" data-i18n="impact4a">Do problema a solucao,</p><p class="impact-highlight" data-i18n="impact4b">SEM ENROLACAO.</p></div></div></section>
-<section class="why-section" id="porque"><div class="why-grid"><div class="why-img-wrap"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=85" alt="Equipe RGA Technologies" loading="lazy"><div class="why-img-border"></div></div><div class="why-content"><div class="why-header"><div class="s-tag">Por que a RGA?</div><h2 class="why-title">IMPACTO REAL<br>NO SEU <span class="c">NEGOCIO</span></h2><p class="why-desc">Nossas solucoes nao sao apenas codigo. Sao ferramentas de crescimento que geram valor mensuravel desde o primeiro dia.</p></div><div class="why-items"><div class="why-item"><div class="why-icon">&#9889;</div><div class="why-item-text"><h4>Agilidade na Entrega</h4><p>Landing pages em 72h, sistemas em semanas. Sem enrolacao, sem atraso.</p></div></div><div class="why-item"><div class="why-icon">&#128202;</div><div class="why-item-text"><h4>Foco em Resultados</h4><p>Tecnologia aplicada para gerar mais leads, mais vendas e reducao de custos operacionais.</p></div></div><div class="why-item"><div class="why-icon">&#129302;</div><div class="why-item-text"><h4>IA de Verdade</h4><p>Agentes autonomos, automacoes inteligentes e sistemas que aprendem com seu negocio.</p></div></div><div class="why-item"><div class="why-icon">&#128274;</div><div class="why-item-text"><h4>Parceria de Longo Prazo</h4><p>Suporte continuo, monitoramento e evolucao constante. Voce foca no negocio, nos cuidamos da tecnologia.</p></div></div></div></div></div></section>
+<!-- IMPACT -->
+<section class="impact-section">
+  <div class="impact-track">
+    <div class="impact-item"><span class="impact-num">01</span><p class="impact-text" data-i18n="impact1a">Nao importa o desafio.</p><p class="impact-highlight" data-i18n="impact1b">A SOLUCAO SOMOS NOS.</p></div>
+    <div class="impact-divider"></div>
+    <div class="impact-item"><span class="impact-num">02</span><p class="impact-text" data-i18n="impact2a">Nos fazemos acontecer.</p><p class="impact-highlight" data-i18n="impact2b">SEMPRE.</p></div>
+    <div class="impact-divider"></div>
+    <div class="impact-item"><span class="impact-num">03</span><p class="impact-text" data-i18n="impact3a">Complicou?</p><p class="impact-highlight" data-i18n="impact3b">A GENTE RESOLVE.</p></div>
+    <div class="impact-divider"></div>
+    <div class="impact-item"><span class="impact-num">04</span><p class="impact-text" data-i18n="impact4a">Do problema a solucao,</p><p class="impact-highlight" data-i18n="impact4b">SEM ENROLACAO.</p></div>
+  </div>
+</section>
+<!-- POR QUE A RGA -->
+<section class="why-section" id="porque">
+  <div class="why-grid">
+    <div class="why-img-wrap">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=85" alt="Equipe RGA" loading="lazy">
+      <div style="position:absolute;inset:-1px;border-radius:16px;border:1px solid rgba(0,212,255,.2);pointer-events:none"></div>
+    </div>
+    <div class="why-content">
+      <div><div class="s-tag">Por que a RGA?</div>
+      <h2 class="why-title">IMPACTO REAL<br>NO SEU <span class="c">NEGOCIO</span></h2>
+      <p class="why-desc">Nossas solucoes nao sao apenas codigo. Sao ferramentas de crescimento que geram valor mensuravel desde o primeiro dia.</p></div>
+      <div class="why-items">
+        <div class="why-item"><div class="why-icon">&#9889;</div><div class="why-item-text"><h4>Agilidade na Entrega</h4><p>Landing pages em 72h, sistemas em semanas. Sem enrolacao, sem atraso.</p></div></div>
+        <div class="why-item"><div class="why-icon">&#128202;</div><div class="why-item-text"><h4>Foco em Resultados</h4><p>Tecnologia para gerar mais leads, mais vendas e reducao de custos operacionais.</p></div></div>
+        <div class="why-item"><div class="why-icon">&#129302;</div><div class="why-item-text"><h4>IA de Verdade</h4><p>Agentes autonomos, automacoes inteligentes e sistemas que aprendem com seu negocio.</p></div></div>
+        <div class="why-item"><div class="why-icon">&#128274;</div><div class="why-item-text"><h4>Parceria de Longo Prazo</h4><p>Suporte continuo, monitoramento e evolucao constante.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PROCESSO -->
 <section class="section" id="processo">
   <div class="s-tag" data-i18n="sect_processo">Como funciona</div>
   <h2 class="s-title">PROCESSO<br><span class="c">SIMPLES</span></h2>
   <div class="proc-grid">
     <div class="psteps">
-      <div class="pstep"><div class="pn">01</div><div><div class="pt">Diagnostico Gratuito</div><p class="pd">Analisamos seus processos e objetivos em uma chamada rapida. Identificamos as maiores oportunidades de automacao e crescimento.</p></div></div>
-      <div class="pstep"><div class="pn">02</div><div><div class="pt">Proposta sob medida</div><p class="pd">Entregamos proposta detalhada com escopo, prazo e investimento. Transparencia total, sem surpresas.</p></div></div>
-      <div class="pstep"><div class="pn">03</div><div><div class="pt">Desenvolvimento Express</div><p class="pd">Landing pages em 72h, sistemas em semanas. Atualizacoes diarias para voce acompanhar o progresso.</p></div></div>
-      <div class="pstep"><div class="pn">04</div><div><div class="pt">Deploy & Suporte Continuo</div><p class="pd">Lancamos, monitoramos e otimizamos. Voce foca no negocio enquanto a tecnologia trabalha 24h por voce.</p></div></div>
+      <div class="pstep"><div class="pn">01</div><div><div class="pt">Diagnostico Gratuito</div><p class="pd">Analisamos seus processos em uma chamada rapida. Identificamos as maiores oportunidades.</p></div></div>
+      <div class="pstep"><div class="pn">02</div><div><div class="pt">Proposta sob medida</div><p class="pd">Proposta detalhada com escopo, prazo e investimento. Transparencia total.</p></div></div>
+      <div class="pstep"><div class="pn">03</div><div><div class="pt">Desenvolvimento Express</div><p class="pd">Landing pages em 72h, sistemas em semanas. Atualizacoes diarias.</p></div></div>
+      <div class="pstep"><div class="pn">04</div><div><div class="pt">Deploy & Suporte Continuo</div><p class="pd">Lancamos, monitoramos e otimizamos. Voce foca no negocio.</p></div></div>
     </div>
     <div class="terminal">
       <div class="t-bar"><div class="t-dots"><div class="tdot tdot-r"></div><div class="tdot tdot-y"></div><div class="tdot tdot-g"></div></div><div class="t-lbl">rga-cli v2.0</div></div>
       <div class="t-body">
-        <div class="tl">$ rga deploy --client=empresa-nova</div>
-        <div class="tw">Conectando ao ambiente RGA...</div>
+        <div class="tl">$ rga deploy --client=empresa</div>
         <div class="tg">OK  Diagnostico concluido</div>
         <div class="tg">OK  Proposta aprovada</div>
-        <div class="tw">Inicializando build...</div>
         <div class="tg">OK  Landing page criada</div>
         <div class="tg">OK  Agente IA configurado</div>
         <div class="tg">OK  WhatsApp API conectado</div>
         <div class="tg">OK  CRM sincronizado</div>
-        <div class="tg">OK  Dominio apontado</div>
         <br>
         <div class="tb">OK  Sistema online!</div>
         <div class="ty">Conversao: +340% | Economia: 52h/sem</div>
@@ -310,24 +387,45 @@ a,button,.bc,.tc,.pf-card{cursor:none}
     </div>
   </div>
 </section>
-<section class="section" id="portfolio" style="background:var(--bg2)">  <div class="s-tag" data-i18n="sect_portfolio">Trabalhos</div>  <h2 class="s-title">PROJETOS<br><span class="p">ENTREGUES</span></h2>  <div style="max-width:860px;margin:0 auto">    <a href="https://minha-luna.com" target="_blank" style="display:block;background:var(--bg3);border:1px solid rgba(0,212,255,0.2);border-radius:20px;overflow:hidden;text-decoration:none;transition:all 0.3s" onmouseover="this.style.borderColor='rgba(0,212,255,0.5)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 24px 60px rgba(0,212,255,0.1)'" onmouseout="this.style.borderColor='rgba(0,212,255,0.2)';this.style.transform='';this.style.boxShadow=''"><div style="height:340px;overflow:hidden;position:relative;background:#060a14"><img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1000&h=680&fit=crop&q=85" alt="Luna App" loading="lazy" style="width:100%;height:100%;object-fit:cover;opacity:0.55;display:block"><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(3,5,13,0.1) 0%,rgba(3,5,13,0.7) 70%,rgba(3,5,13,0.95) 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:40px;gap:16px"><div style="font-family:'Bebas Neue',sans-serif;font-size:80px;color:#fff;letter-spacing:12px;text-shadow:0 0 60px rgba(0,212,255,1);line-height:1;text-align:center">LUNA</div><div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:4px;color:rgba(0,212,255,0.9);text-transform:uppercase;text-align:center">Assistente de Tarefas com IA</div><a href="https://minha-luna.com" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,var(--c),var(--p));color:#000;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:8px;text-decoration:none;margin-top:8px">Visitar Site &#8599;</a></div></div></a>          <span style="font-family:'Space Mono',monospace;font-size:11px;color:var(--tm);letter-spacing:1px">minha-luna.com</span>        </div>      </div>    </a>  </div></section>
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio" style="background:var(--bg2)">
+  <div class="s-tag" data-i18n="sect_portfolio">Trabalhos</div>
+  <h2 class="s-title">PROJETOS<br><span class="p">ENTREGUES</span></h2>
+  <div class="pf-single-wrap">
+    <a class="pf-card" href="https://minha-luna.com" target="_blank">
+      <div class="pf-img">
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1000&h=640&fit=crop&q=85" alt="Luna App" loading="lazy">
+        <div class="pf-img-overlay">
+          <div class="pf-luna-text">LUNA</div>
+          <div class="pf-luna-sub">Assistente de Tarefas com IA</div>
+          <a href="https://minha-luna.com" target="_blank" class="pf-btn">Visitar Site &#8599;</a>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+<!-- RESULTADOS -->
 <section class="section" id="resultados">
   <div class="s-tag" data-i18n="sect_resultados">Resultados reais</div>
   <h2 class="s-title">CLIENTES QUE<br><span class="c">TRANSFORMAMOS</span></h2>
-  <div class="tc-grid"><div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">O agente de IA transformou completamente nosso atendimento. Respondemos 3x mais leads sem aumentar a equipe. O ROI foi imediato, em 3 semanas ja tinhamos pago o investimento.</p><div class="tc-author"><div class="tc-av av-c">CM</div><div><div class="tc-name">Carlos Mendes</div><div class="tc-role">CEO &mdash; Imobiliaria Prime</div></div></div></div><div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">A landing page que a RGA criou converteu 340% mais que a anterior. Em 72 horas estava no ar, com copy incrivel e design premium. Resultado absurdo.</p><div class="tc-author"><div class="tc-av av-p">MF</div><div><div class="tc-name">Marina Ferreira</div><div class="tc-role">CEO &mdash; Curso Online Pro</div></div></div></div><div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">Cotei o mesmo projeto em 3 agencias: R$30k e 4 meses. A RGA entregou em 2 semanas por muito menos e com qualidade muito superior. Virou nosso parceiro tecnologico fixo.</p><div class="tc-author"><div class="tc-av av-b">RF</div><div><div class="tc-name">Rodrigo Fonseca</div><div class="tc-role">Fundador &mdash; E-commerce ModaBR</div></div></div></div></div><div class="tc-role">CEO &mdash; Imobiliaria Prime</div></div></div></div>
-    <div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">Cotei o mesmo projeto em 3 agencias: R$30k e 4 meses. A RGA entregou em 2 semanas por muito menos e com qualidade muito superior. Virou nosso parceiro tecnologico fixo.</p><div class="tc-author"><div class="tc-av av-b">RF</div><div><div class="tc-name">Rodrigo Fonseca</div><div class="tc-role">Fundador</div></div></div></div>
+  <div class="tc-grid">
+    <div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">O agente de IA transformou completamente nosso atendimento. Respondemos 3x mais leads sem aumentar a equipe. O ROI foi imediato, em 3 semanas ja tinhamos pago o investimento.</p><div class="tc-author"><div class="tc-av av-c">CM</div><div><div class="tc-name">Carlos Mendes</div><div class="tc-role">CEO &mdash; Imobiliaria Prime</div></div></div></div>
+    <div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">A landing page que a RGA criou converteu 340% mais que a anterior. Em 72 horas estava no ar, com copy incrivel e design premium. Resultado absurdo.</p><div class="tc-author"><div class="tc-av av-p">MF</div><div><div class="tc-name">Marina Ferreira</div><div class="tc-role">CEO &mdash; Curso Online Pro</div></div></div></div>
+    <div class="tc"><div class="tc-q">"</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tc-text">Cotei o mesmo projeto em 3 agencias: R$30k e 4 meses. A RGA entregou em 2 semanas por muito menos e com qualidade muito superior. Virou nosso parceiro tecnologico fixo.</p><div class="tc-author"><div class="tc-av av-b">RF</div><div><div class="tc-name">Rodrigo Fonseca</div><div class="tc-role">Fundador &mdash; E-commerce ModaBR</div></div></div></div>
   </div>
 </section>
+<!-- CTA -->
 <section class="cta-section" id="contato">
   <div class="cta-bg"></div>
   <div class="cta-badge" data-i18n="cta_badge">Pronto para comecar?</div>
   <h2 class="cta-title" data-i18n="cta_title">VAMOS CRIAR<br>ALGO INCRIVEL</h2>
   <p class="cta-sub" data-i18n="cta_sub">Diagnostico gratuito. Sem compromisso. Descubra como a RGA Technologies pode transformar sua empresa em 72 horas.</p>
   <div class="cta-btns">
-    <a href="https://wa.me/5548984867394" class="btn-wa" target="_blank" data-i18n="hero_btn1">WhatsApp</a>
-    <a href="#servicos" class="btn-ghost" data-i18n="hero_btn2">Ver Solucoes</a>
+    <a href="https://wa.me/5548984867394" class="btn-wa" target="_blank">WhatsApp</a>
+    <a href="#servicos" class="btn-ghost">Ver Solucoes</a>
   </div>
 </section>
+<!-- FOOTER -->
 <footer>
   <div class="footer-brand">
     <img class="footer-logo" src="Logo_icon.png" alt="RGA">
@@ -335,124 +433,124 @@ a,button,.bc,.tc,.pf-card{cursor:none}
   </div>
   <div class="footer-copy">&copy; 2026 RGA Technologies &mdash; rga-technologies.com</div>
 </footer>
-
-
-<!-- Back to top --><button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
-<!-- Cursor tecnologico -->
-<script>// ===== i18n =====
-var translations = {
-  pt: {
-    nav_servicos:"Servicos",nav_processo:"Processo",nav_portfolio:"Portfolio",nav_resultados:"Resultados",nav_contato:"Contato",nav_wa:"WhatsApp",
-    hero_eyebrow:"Automacao & IA sob medida",
-    hero_line1:"SISTEMAS QUE",hero_line2:"TRABALHAM",hero_line3:"POR VOCE",
-    hero_sub:"Desenvolvemos agentes de IA, automacoes avancadas, landing pages de alta conversao e sistemas sob medida para escalar seu negocio.",
-    hero_btn1:"WhatsApp",hero_btn2:"Ver Solucoes",
-    metric1:"Economizadas / semana",metric2:"Mais leads convertidos",metric3:"Da ideia ao ar",metric4:"Personalizado",
-    sect_servicos:"O que fazemos",sect_titulo_servicos:"NOSSAS<br><span class=\"c\">ESPECIALIDADES</span>",
-    sect_processo:"Como funciona",sect_titulo_proc:"PROCESSO<br><span class=\"c\">SIMPLES</span>",
-    sect_portfolio:"Trabalhos",sect_titulo_port:"PROJETOS<br><span class=\"p\">ENTREGUES</span>",
-    sect_resultados:"Resultados reais",sect_titulo_res:"CLIENTES QUE<br><span class=\"c\">TRANSFORMAMOS</span>",
-    cta_badge:"Pronto para comecar?",cta_title:"VAMOS CRIAR<br>ALGO INCRIVEL",
-    cta_sub:"Diagnostico gratuito. Sem compromisso. Descubra como a RGA Technologies pode transformar sua empresa em 72 horas.",
-    impact1a:"Nao importa o desafio.",impact1b:"A SOLUCAO SOMOS NOS.",
-    impact2a:"Nos fazemos acontecer.",impact2b:"SEMPRE.",
-    impact3a:"Complicou?",impact3b:"A GENTE RESOLVE.",
-    impact4a:"Do problema a solucao,",impact4b:"SEM ENROLACAO."
-  },
-  en: {
-    nav_servicos:"Services",nav_processo:"Process",nav_portfolio:"Portfolio",nav_resultados:"Results",nav_contato:"Contact",nav_wa:"WhatsApp",
-    hero_eyebrow:"Automation & AI tailored for you",
-    hero_line1:"SYSTEMS THAT",hero_line2:"WORK",hero_line3:"FOR YOU",
-    hero_sub:"We build AI agents, advanced automations, high-conversion landing pages and custom systems to scale your business.",
-    hero_btn1:"WhatsApp",hero_btn2:"Our Solutions",
-    metric1:"Saved / week",metric2:"More leads converted",metric3:"From idea to live",metric4:"Customized",
-    sect_servicos:"What we do",sect_titulo_servicos:"OUR<br><span class=\"c\">SPECIALTIES</span>",
-    sect_processo:"How it works",sect_titulo_proc:"SIMPLE<br><span class=\"c\">PROCESS</span>",
-    sect_portfolio:"Work",sect_titulo_port:"DELIVERED<br><span class=\"p\">PROJECTS</span>",
-    sect_resultados:"Real results",sect_titulo_res:"CLIENTS WE<br><span class=\"c\">TRANSFORMED</span>",
-    cta_badge:"Ready to start?",cta_title:"LETS CREATE<br>SOMETHING AMAZING",
-    cta_sub:"Free diagnosis. No commitment. Discover how RGA Technologies can transform your business in 72 hours.",
-    impact1a:"No matter the challenge.",impact1b:"WE ARE THE SOLUTION.",
-    impact2a:"We make it happen.",impact2b:"ALWAYS.",
-    impact3a:"Got complicated?",impact3b:"WE SOLVE IT.",
-    impact4a:"From problem to solution,",impact4b:"NO DELAYS."
-  },
-  es: {
-    nav_servicos:"Servicios",nav_processo:"Proceso",nav_portfolio:"Portafolio",nav_resultados:"Resultados",nav_contato:"Contacto",nav_wa:"WhatsApp",
-    hero_eyebrow:"Automatizacion e IA a medida",
-    hero_line1:"SISTEMAS QUE",hero_line2:"TRABAJAN",hero_line3:"POR TI",
-    hero_sub:"Desarrollamos agentes de IA, automatizaciones avanzadas, landing pages de alta conversion y sistemas a medida para escalar tu negocio.",
-    hero_btn1:"WhatsApp",hero_btn2:"Ver Soluciones",
-    metric1:"Ahorradas / semana",metric2:"Mas leads convertidos",metric3:"De la idea al aire",metric4:"Personalizado",
-    sect_servicos:"Lo que hacemos",sect_titulo_servicos:"NUESTRAS<br><span class=\"c\">ESPECIALIDADES</span>",
-    sect_processo:"Como funciona",sect_titulo_proc:"PROCESO<br><span class=\"c\">SIMPLE</span>",
-    sect_portfolio:"Trabajos",sect_titulo_port:"PROYECTOS<br><span class=\"p\">ENTREGADOS</span>",
-    sect_resultados:"Resultados reales",sect_titulo_res:"CLIENTES QUE<br><span class=\"c\">TRANSFORMAMOS</span>",
-    cta_badge:"Listo para empezar?",cta_title:"CREEMOS<br>ALGO INCREIBLE",
-    cta_sub:"Diagnostico gratuito. Sin compromiso. Descubre como RGA Technologies puede transformar tu empresa en 72 horas.",
-    impact1a:"No importa el desafio.",impact1b:"LA SOLUCION SOMOS NOSOTROS.",
-    impact2a:"Lo hacemos realidad.",impact2b:"SIEMPRE.",
-    impact3a:"Se complico?",impact3b:"LO RESOLVEMOS.",
-    impact4a:"Del problema a la solucion,",impact4b:"SIN RODEOS."
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Topo">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+<!-- CURSOR CANVAS -->
+<canvas id="RCURSOR" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;display:block"></canvas>
+<script>
+// CURSOR
+(function(){
+  var cv=document.getElementById("RCURSOR");
+  if(!cv)return;
+  cv.width=window.innerWidth;cv.height=window.innerHeight;
+  window.addEventListener("resize",function(){cv.width=window.innerWidth;cv.height=window.innerHeight;});
+  var ctx=cv.getContext("2d");
+  var mx=window.innerWidth/2,my=window.innerHeight/2,lx=mx,ly=my,hov=false,ang=0;
+  document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;},true);
+  setTimeout(function(){
+    document.querySelectorAll("a,button,.svc-card,.tc,.pf-card").forEach(function(el){
+      el.addEventListener("mouseenter",function(){hov=true;});
+      el.addEventListener("mouseleave",function(){hov=false;});
+    });
+  },500);
+  var s=document.createElement("style");
+  s.textContent="*,*::before,*::after{cursor:none!important}";
+  document.head.appendChild(s);
+  function tick(){
+    ang+=0.04;
+    lx+=(mx-lx)*0.14;ly+=(my-ly)*0.14;
+    ctx.clearRect(0,0,cv.width,cv.height);
+    var r=hov?22:13;
+    ctx.save();ctx.translate(lx,ly);ctx.rotate(ang);
+    ctx.beginPath();ctx.arc(0,0,r,0,6.283);
+    ctx.strokeStyle="rgba(0,212,255,"+(hov?0.85:0.55)+")";
+    ctx.lineWidth=1.5;ctx.setLineDash([4,4]);ctx.stroke();
+    ctx.restore();
+    ctx.save();ctx.translate(lx,ly);ctx.rotate(-ang*1.7);
+    ctx.beginPath();ctx.arc(0,0,r*0.5,0,6.283);
+    ctx.strokeStyle="rgba(155,92,255,"+(hov?0.7:0.35)+")";
+    ctx.lineWidth=1;ctx.setLineDash([2,6]);ctx.stroke();
+    ctx.restore();
+    ctx.save();ctx.translate(mx,my);
+    ctx.strokeStyle="rgba(0,212,255,0.45)";ctx.lineWidth=0.8;ctx.setLineDash([]);
+    ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(-5,0);ctx.moveTo(5,0);ctx.lineTo(10,0);
+    ctx.moveTo(0,-10);ctx.lineTo(0,-5);ctx.moveTo(0,5);ctx.lineTo(0,10);ctx.stroke();
+    ctx.restore();
+    ctx.save();ctx.translate(mx,my);
+    ctx.shadowColor="#00d4ff";ctx.shadowBlur=hov?14:8;
+    ctx.fillStyle="#00d4ff";
+    ctx.beginPath();ctx.arc(0,0,hov?3:2,0,6.283);ctx.fill();
+    ctx.restore();
+    requestAnimationFrame(tick);
   }
-};
-function setLang(lang){
-  var t=translations[lang];
-  if(!t)return;
-  // nav links
-  document.querySelectorAll("[data-i18n]").forEach(function(el){
-    var key=el.getAttribute("data-i18n");
-    if(t[key])el.innerHTML=t[key];
+  tick();
+})();
+// BACK TO TOP
+(function(){
+  var btn=document.getElementById("backToTop");
+  if(!btn)return;
+  window.addEventListener("scroll",function(){
+    btn.classList.toggle("visible",window.pageYOffset>300);
   });
-  // hero
-  var ey=document.querySelector(".hero-eyebrow");if(ey){var spans=ey.querySelectorAll("span");ey.childNodes.forEach(function(n){if(n.nodeType===3)n.textContent=t.hero_eyebrow});}
-  var l1=document.querySelector(".hero-title .line1");if(l1)l1.textContent=t.hero_line1;
-  var l2=document.querySelector(".hero-title .line2");if(l2)l2.textContent=t.hero_line2;
-  var l3=document.querySelector(".hero-title .line3");if(l3)l3.textContent=t.hero_line3;
-  var hs=document.querySelector(".hero-sub");if(hs)hs.textContent=t.hero_sub;
-  // metrics
-  var mls=document.querySelectorAll(".metric-label");
-  if(mls[0])mls[0].textContent=t.metric1;
-  if(mls[1])mls[1].textContent=t.metric2;
-  if(mls[2])mls[2].textContent=t.metric3;
-  if(mls[3])mls[3].textContent=t.metric4;
-  // impact
-  var its=document.querySelectorAll(".impact-item");
-  if(its[0]){its[0].querySelector(".impact-text").textContent=t.impact1a;its[0].querySelector(".impact-highlight").textContent=t.impact1b;}
-  if(its[1]){its[1].querySelector(".impact-text").textContent=t.impact2a;its[1].querySelector(".impact-highlight").textContent=t.impact2b;}
-  if(its[2]){its[2].querySelector(".impact-text").textContent=t.impact3a;its[2].querySelector(".impact-highlight").textContent=t.impact3b;}
-  if(its[3]){its[3].querySelector(".impact-text").textContent=t.impact4a;its[3].querySelector(".impact-highlight").textContent=t.impact4b;}
-  // CTA
-  var cb=document.querySelector(".cta-badge");if(cb)cb.textContent=t.cta_badge;
-  var ct=document.querySelector(".cta-title");if(ct)ct.innerHTML=t.cta_title;
-  var cs=document.querySelector(".cta-sub");if(cs)cs.textContent=t.cta_sub;
-  // active button
-  document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.remove("active")});
-  var ab=document.getElementById("lang-"+lang);if(ab)ab.classList.add("active");
-  // html lang
-  document.documentElement.lang=lang;
-}
-// Hamburger
+})();
+// HAMBURGER
 function toggleMenu(){
-  var menu=document.getElementById("mobileMenu");
-  var hamburger=document.getElementById("navHamburger");
-  var isOpen=menu.classList.contains("open");
-  if(isOpen){menu.classList.remove("open");hamburger.classList.remove("open")}
-  else{menu.classList.add("open");hamburger.classList.add("open")}
+  var m=document.getElementById("mobileMenu"),h=document.getElementById("navHamburger");
+  m.classList.toggle("open");h.classList.toggle("open");
 }
 function closeMenu(){
   document.getElementById("mobileMenu").classList.remove("open");
   document.getElementById("navHamburger").classList.remove("open");
 }
-// Close menu on outside click
-document.addEventListener("click",function(e){
-  var menu=document.getElementById("mobileMenu");
-  var hamburger=document.getElementById("navHamburger");
-  if(menu&&hamburger&&!menu.contains(e.target)&&!hamburger.contains(e.target)){closeMenu()}
-});
+// BEAMS
+(function(){
+  var c=document.getElementById("beamsCanvas");
+  if(!c)return;
+  var ctx=c.getContext("2d");
+  function rs(){c.width=window.innerWidth;c.height=window.innerHeight}rs();
+  window.addEventListener("resize",rs);
+  var N=16,beams=[];
+  function rand(a,b){return a+Math.random()*(b-a)}
+  function mk(){
+    var w=c.width,h=c.height,s=Math.floor(Math.random()*4);
+    var x,y;
+    if(s===0){x=rand(0,w);y=0}else if(s===1){x=w;y=rand(0,h)}else if(s===2){x=rand(0,w);y=h}else{x=0;y=rand(0,h)}
+    var hu=Math.random()<.5?rand(185,205):rand(265,285);
+    return{x:x,y:y,tx:w/2+rand(-200,200),ty:h/2+rand(-200,200),w:rand(.8,2),a:0,ma:rand(.05,.15),sp:rand(.001,.005),p:Math.random(),hu:hu,len:rand(.3,.7)}
+  }
+  for(var i=0;i<N;i++)beams.push(mk());
+  function drw(b){
+    var hT=Math.min(b.p,1),tT=Math.max(b.p-b.len,0);
+    var hx=b.x+(b.tx-b.x)*hT,hy=b.y+(b.ty-b.y)*hT,tx=b.x+(b.tx-b.x)*tT,ty=b.y+(b.ty-b.y)*tT;
+    var g=ctx.createLinearGradient(tx,ty,hx,hy);
+    g.addColorStop(0,"hsla("+b.hu+",100%,65%,0)");
+    g.addColorStop(.6,"hsla("+b.hu+",100%,65%,"+b.a*.5+")");
+    g.addColorStop(1,"hsla("+b.hu+",100%,75%,"+b.a+")");
+    ctx.save();ctx.beginPath();ctx.moveTo(tx,ty);ctx.lineTo(hx,hy);
+    ctx.strokeStyle=g;ctx.lineWidth=b.w;ctx.lineCap="round";
+    ctx.shadowColor="hsla("+b.hu+",100%,60%,.4)";ctx.shadowBlur=12;ctx.stroke();ctx.restore();
+  }
+  function anim(){
+    ctx.clearRect(0,0,c.width,c.height);
+    for(var i=0;i<beams.length;i++){
+      var b=beams[i];b.p+=b.sp;
+      if(b.p<.15)b.a=(b.p/.15)*b.ma;else if(b.p>.8)b.a=((1-b.p)/.2)*b.ma;else b.a=b.ma;
+      if(b.p>1.2)beams[i]=mk();if(b.p>b.len*.05)drw(b);
+    }
+    requestAnimationFrame(anim);
+  }
+  anim();
+})();
+// I18N
+var T={pt:{nav_servicos:"Servicos",nav_processo:"Processo",nav_portfolio:"Portfolio",nav_resultados:"Resultados",nav_contato:"Contato",nav_wa:"WhatsApp",hero_sub:"Desenvolvemos agentes de IA, automacoes avancadas, landing pages de alta conversao e sistemas sob medida para escalar seu negocio.",metric1:"Economizadas / semana",metric2:"Mais leads convertidos",metric3:"Da ideia ao ar",metric4:"Personalizado",sect_servicos:"O que fazemos",sect_processo:"Como funciona",sect_portfolio:"Trabalhos",sect_resultados:"Resultados reais",impact1a:"Nao importa o desafio.",impact1b:"A SOLUCAO SOMOS NOS.",impact2a:"Nos fazemos acontecer.",impact2b:"SEMPRE.",impact3a:"Complicou?",impact3b:"A GENTE RESOLVE.",impact4a:"Do problema a solucao,",impact4b:"SEM ENROLACAO.",cta_badge:"Pronto para comecar?",cta_title:"VAMOS CRIAR<br>ALGO INCRIVEL",cta_sub:"Diagnostico gratuito. Sem compromisso. Descubra como a RGA Technologies pode transformar sua empresa em 72 horas."},en:{nav_servicos:"Services",nav_processo:"Process",nav_portfolio:"Portfolio",nav_resultados:"Results",nav_contato:"Contact",nav_wa:"WhatsApp",hero_sub:"We build AI agents, advanced automations, high-conversion landing pages and custom systems to scale your business.",metric1:"Saved / week",metric2:"More leads converted",metric3:"From idea to live",metric4:"Customized",sect_servicos:"What we do",sect_processo:"How it works",sect_portfolio:"Work",sect_resultados:"Real results",impact1a:"No matter the challenge.",impact1b:"WE ARE THE SOLUTION.",impact2a:"We make it happen.",impact2b:"ALWAYS.",impact3a:"Got complicated?",impact3b:"WE SOLVE IT.",impact4a:"From problem to solution,",impact4b:"NO DELAYS.",cta_badge:"Ready to start?",cta_title:"LETS CREATE<br>SOMETHING AMAZING",cta_sub:"Free diagnosis. No commitment. Discover how RGA Technologies can transform your business in 72 hours."},es:{nav_servicos:"Servicios",nav_processo:"Proceso",nav_portfolio:"Portafolio",nav_resultados:"Resultados",nav_contato:"Contacto",nav_wa:"WhatsApp",hero_sub:"Desarrollamos agentes de IA, automatizaciones avanzadas, landing pages de alta conversion y sistemas a medida.",metric1:"Ahorradas / semana",metric2:"Mas leads convertidos",metric3:"De la idea al aire",metric4:"Personalizado",sect_servicos:"Lo que hacemos",sect_processo:"Como funciona",sect_portfolio:"Trabajos",sect_resultados:"Resultados reales",impact1a:"No importa el desafio.",impact1b:"LA SOLUCION SOMOS NOSOTROS.",impact2a:"Lo hacemos realidad.",impact2b:"SIEMPRE.",impact3a:"Se complico?",impact3b:"LO RESOLVEMOS.",impact4a:"Del problema a la solucion,",impact4b:"SIN RODEOS.",cta_badge:"Listo para empezar?",cta_title:"CREEMOS<br>ALGO INCREIBLE",cta_sub:"Diagnostico gratuito. Sin compromiso. Descubre como RGA Technologies puede transformar tu empresa."}};
+function setLang(l){
+  var t=T[l];if(!t)return;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){var k=el.getAttribute("data-i18n");if(t[k])el.innerHTML=t[k];});
+  document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.remove("active")});
+  var ab=document.getElementById("lang-"+l);if(ab)ab.classList.add("active");
+}
 </script>
-<script>(function(){  var btn=document.getElementById("backToTop");  if(!btn)return;  window.addEventListener("scroll",function(){    if(window.pageYOffset>300){btn.classList.add("visible")}    else{btn.classList.remove("visible")}  });})();</script>
-<script>(function(){  var dot=document.getElementById("cursorDot");  var ring=document.getElementById("cursorRing");  if(!dot||!ring)return;  var mx=window.innerWidth/2,my=window.innerHeight/2;  document.addEventListener("mousemove",function(e){    mx=e.clientX;my=e.clientY;    dot.style.left=mx+"px";dot.style.top=my+"px";  });  // Ring segue com delay suave  var rx=mx,ry=my;  function animRing(){    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;    ring.style.left=rx+"px";ring.style.top=ry+"px";    requestAnimationFrame(animRing);  }  animRing();  // Hover em links e botoes  document.querySelectorAll("a,button,.pj-card-new,.bc,.tc").forEach(function(el){    el.addEventListener("mouseenter",function(){ring.classList.add("hovering")});    el.addEventListener("mouseleave",function(){ring.classList.remove("hovering")});  });  // Esconder cursor nativo  document.body.style.cursor="none";  document.querySelectorAll("a,button").forEach(function(el){el.style.cursor="none"});})();</script>
-<canvas id="cursorCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999"></canvas>
-<script>(function(){var canvas=document.getElementById("cursorCanvas");if(!canvas)return;var ctx=canvas.getContext("2d");canvas.width=window.innerWidth;canvas.height=window.innerHeight;window.addEventListener("resize",function(){canvas.width=window.innerWidth;canvas.height=window.innerHeight});var mx=window.innerWidth/2,my=window.innerHeight/2;var tx=mx,ty=my,hovering=false;document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY});document.querySelectorAll("a,button,.bc,.tc,.pf-card").forEach(function(el){  el.addEventListener("mouseenter",function(){hovering=true});  el.addEventListener("mouseleave",function(){hovering=false});});function draw(){  ctx.clearRect(0,0,canvas.width,canvas.height);  tx+=(mx-tx)*0.15;ty+=(my-ty)*0.15;  var t=Date.now()/1000;  var r=hovering?22:14;  var alpha=hovering?0.9:0.7;  // Anel externo rotativo  ctx.save();ctx.translate(tx,ty);ctx.rotate(t*1.5);  ctx.strokeStyle="rgba(0,212,255,"+alpha+")";ctx.lineWidth=1;  ctx.setLineDash([4,6]);  ctx.beginPath();ctx.arc(0,0,r,0,Math.PI*2);ctx.stroke();  ctx.restore();  // Anel interno  ctx.save();ctx.translate(tx,ty);ctx.rotate(-t*2);  ctx.strokeStyle="rgba(155,92,255,"+(alpha*0.6)+")";ctx.lineWidth=0.5;  ctx.setLineDash([2,8]);  ctx.beginPath();ctx.arc(0,0,r*0.6,0,Math.PI*2);ctx.stroke();  ctx.restore();  // Ponto central  ctx.save();ctx.translate(mx,my);  ctx.fillStyle="rgba(0,212,255,1)";  ctx.shadowColor="rgba(0,212,255,0.8)";ctx.shadowBlur=8;  ctx.beginPath();ctx.arc(0,0,hovering?4:2.5,0,Math.PI*2);ctx.fill();  ctx.restore();  // Linhas de mira (crosshair) no ponto real do mouse  ctx.save();ctx.translate(mx,my);  ctx.strokeStyle="rgba(0,212,255,0.4)";ctx.lineWidth=0.8;ctx.setLineDash([]);  ctx.beginPath();ctx.moveTo(-10,0);ctx.lineTo(-4,0);ctx.stroke();  ctx.beginPath();ctx.moveTo(4,0);ctx.lineTo(10,0);ctx.stroke();  ctx.beginPath();ctx.moveTo(0,-10);ctx.lineTo(0,-4);ctx.stroke();  ctx.beginPath();ctx.moveTo(0,4);ctx.lineTo(0,10);ctx.stroke();  ctx.restore();  requestAnimationFrame(draw);}draw();})();</script>
-</body></html>
+</body>
+</html>
